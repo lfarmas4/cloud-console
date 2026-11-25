@@ -3480,7 +3480,7 @@
               <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M5 7h8l-4 4-4-4z"/></svg>
             </button>
             <button class="tx-filter-dropdown-btn">
-              <span>Previous 3 months</span>
+              <span>All time (Apr – Nov 2026)</span>
               <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M5 7h8l-4 4-4-4z"/></svg>
             </button>
           </div>
@@ -3625,18 +3625,21 @@
             </table>
           </div>
 
-          <!-- Earlier Months White Card: Aug, Jul, Jun, May, Apr 2026 -->
+          <!-- Month 4 White Card: Aug 1 – 31, 2026 (Month 5: $188.50) -->
           <div class="tx-month-white-card">
             <div class="tx-card-header">
-              <h2 class="tx-card-title">Earlier Cycles (Apr – Aug 2026)</h2>
+              <h2 class="tx-card-title">Aug 1 – 31, 2026</h2>
               <div class="tx-card-actions">
-                <button class="tx-action-icon-btn" title="Download CSV" onclick="downloadPaymentsCSV()">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
                 </button>
               </div>
             </div>
             <div class="tx-balance-bar">
-              Historical settled: <strong>USD 843.56</strong> (All paid in full via American Express •••• 1989)
+              Ending balance: <strong>USD 0.00</strong>
             </div>
             <table class="gcp-tx-table">
               <thead>
@@ -3648,44 +3651,205 @@
               </thead>
               <tbody>
                 <tr>
+                  <td>Aug 1 – 31, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 188.50</td>
+                </tr>
+                <tr>
                   <td>Aug 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-07')">Monthly charge: American Express •••• 1989.</a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-07')">41601509666548982740-CLOUD (Invoice 5685089576 • August)</div>
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 ago 2026', '172.44', 'A9654842096352171', 'CLOUD 41601509666548982740')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 ago 2026', '172.44', 'A9654842096352171', 'CLOUD 41601509666548982740')">
+                      41601509666548982740-CLOUD
+                    </div>
                   </td>
-                  <td class="right tx-amount-payment">-USD 188.50</td>
+                  <td class="right tx-amount-payment">-USD 172.44</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Month 5 White Card: Jul 1 – 31, 2026 (Month 4: $172.44) -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Jul 1 – 31, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 0.00</strong>
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
+                <tr>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jul 1 – 31, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 172.44</td>
                 </tr>
                 <tr>
                   <td>Jul 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-06')">Monthly charge: American Express •••• 1989.</a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-06')">41601509666548981655-CLOUD (Invoice 5655234025 • July: Cuarto mes)</div>
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 jul 2026', '167.62', 'A9654842096352170', 'CLOUD 41601509666548981622')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 jul 2026', '167.62', 'A9654842096352170', 'CLOUD 41601509666548981622')">
+                      41601509666548981622-CLOUD
+                    </div>
                   </td>
-                  <td class="right tx-amount-payment">-USD 172.44</td>
+                  <td class="right tx-amount-payment">-USD 167.62</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Month 6 White Card: Jun 1 – 30, 2026 (Month 3: $167.62) -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Jun 1 – 30, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 0.00</strong>
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
+                <tr>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jun 1 – 30, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 167.62</td>
                 </tr>
                 <tr>
                   <td>Jun 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-05')">Monthly charge: American Express •••• 1989.</a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-05')">41601509666548980544-CLOUD (Invoice 5626064420 • June: Tercer mes)</div>
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 jun 2026', '160.00', 'A9654842096352169', 'CLOUD 41601509666548980518')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 jun 2026', '160.00', 'A9654842096352169', 'CLOUD 41601509666548980518')">
+                      41601509666548980518-CLOUD
+                    </div>
                   </td>
-                  <td class="right tx-amount-payment">-USD 167.62</td>
+                  <td class="right tx-amount-payment">-USD 160.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Month 7 White Card: May 1 – 31, 2026 (Month 2: $160.00) -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">May 1 – 31, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 0.00</strong>
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
+                <tr>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>May 1 – 31, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 160.00</td>
                 </tr>
                 <tr>
                   <td>May 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-04')">Monthly charge: American Express •••• 1989.</a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-04')">41601509666548979433-CLOUD (Invoice 5598511715 • May: Segundo mes)</div>
-                  </td>
-                  <td class="right tx-amount-payment">-USD 160.00</td>
-                </tr>
-                <tr>
-                  <td>Apr 1, 2026</td>
-                  <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-04')">Monthly charge: American Express •••• 1989.</a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-04')">41601509666548978322-CLOUD (Invoice 5565692484 • April: Primer mes)</div>
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 may 2026', '155.00', 'A9654842096352168', 'CLOUD 41601509666548979405')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 may 2026', '155.00', 'A9654842096352168', 'CLOUD 41601509666548979405')">
+                      41601509666548979405-CLOUD
+                    </div>
                   </td>
                   <td class="right tx-amount-payment">-USD 155.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Month 8 White Card: Apr 1 – 30, 2026 (Month 1: $155.00) -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Apr 1 – 30, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 0.00</strong>
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
+                <tr>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Apr 1 – 30, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 155.00</td>
+                </tr>
+                <tr>
+                  <td>Apr 3, 2026</td>
+                  <td>
+                    <a class="tx-desc-link" onclick="openExactReceipt('3 abr 2026', '0.00', 'A9654842096352167', 'CLOUD 41601509666548978102')">
+                      Automatic payment verification: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openExactReceipt('3 abr 2026', '0.00', 'A9654842096352167', 'CLOUD 41601509666548978102')">
+                      41601509666548978102-CLOUD
+                    </div>
+                  </td>
+                  <td class="right tx-amount-payment">-USD 0.00</td>
                 </tr>
               </tbody>
             </table>
