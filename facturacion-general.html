@@ -2210,6 +2210,635 @@
       }
     }
 
+  
+    /* ==========================================================================
+       GOOGLE ACCOUNT CHOOSER POPOVER & ACCOUNT MANAGEMENT (ADMINISTRACIÓN)
+       ========================================================================== */
+    .cfc-accountchooser-menu {
+      position: absolute;
+      top: 48px;
+      right: 12px;
+      width: 360px;
+      background-color: #282c32;
+      border: 1px solid #50638b;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(80, 99, 139, 0.4);
+      z-index: 10000;
+      color: #f1f4f9;
+      font-family: 'Google Sans', Roboto, Arial, sans-serif;
+      padding: 16px 0 12px;
+      animation: popoverFadeIn 0.15s cubic-bezier(0, 0, 0.2, 1);
+    }
+    @keyframes popoverFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .cfc-accountchooser-details {
+      display: flex;
+      padding: 0 16px 16px;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .cfc-profilepicture {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #00897b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cfc-profilepicture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cfc-accountchooser-links {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+    .cfc-profilename {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #f1f4f9;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cfc-profileusername {
+      font-size: 13px;
+      color: #b9c0cc;
+      margin: 2px 0 10px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cfc-profilebutton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 16px;
+      background-color: #839cff;
+      color: #1b2e5d !important;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 9999px;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+    .cfc-profilebutton:hover {
+      background-color: #9eb5ff;
+    }
+    .cfc-menu-section {
+      border-top: 1px solid rgba(80, 99, 139, 0.4);
+      padding: 8px 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .cfc-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 16px;
+      font-size: 13px;
+      color: #f1f4f9;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .cfc-menu-item:hover {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+    .cfc-menu-icon {
+      width: 18px;
+      height: 18px;
+      fill: #b9c0cc;
+      flex-shrink: 0;
+    }
+    .cfc-external-icon {
+      width: 14px;
+      height: 14px;
+      fill: #b9c0cc;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .cfc-accountchooser-buttons {
+      border-top: 1px solid rgba(80, 99, 139, 0.4);
+      padding: 12px 16px 2px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .cfc-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 16px;
+      border: 1px solid #50638b;
+      color: #839cff !important;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .cfc-action-btn:hover {
+      background-color: rgba(131, 156, 255, 0.08);
+      border-color: #839cff;
+    }
+
+    /* --------------------------------------------------------------------------
+       ACCOUNT MANAGEMENT PAGE (#view-account-management)
+       -------------------------------------------------------------------------- */
+    #view-account-management {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background: #131314;
+      color: #e3e3e3;
+    }
+    #view-account-management.active {
+      display: flex;
+    }
+    .manage-page-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 49px;
+      padding: 0 16px 0 24px;
+      border-bottom: 1px solid #282c32;
+      background: #131314;
+      flex-shrink: 0;
+    }
+    .manage-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .manage-page-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #f1f4f9;
+      margin: 0;
+      padding-right: 12px;
+    }
+    .manage-toolbar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      color: #839cff;
+      font-size: 13px;
+      font-weight: 500;
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .manage-toolbar-btn:hover:not(:disabled) {
+      background: rgba(131, 156, 255, 0.08);
+    }
+    .manage-toolbar-btn.disabled, .manage-toolbar-btn:disabled {
+      color: #717781 !important;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    .manage-toolbar-btn.icon-only {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .manage-toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .manage-toolbar-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #839cff;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+    .manage-toolbar-link-btn:hover {
+      background: rgba(131, 156, 255, 0.08);
+    }
+    .manage-pill-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 16px;
+      border: 1px solid #50638b;
+      border-radius: 9999px;
+      background: transparent;
+      color: #839cff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .manage-pill-toggle-btn:hover {
+      background: rgba(131, 156, 255, 0.08);
+      border-color: #839cff;
+    }
+    .manage-main-split {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+    .manage-left-col {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      min-width: 320px;
+    }
+    .manage-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .manage-meta-card {
+      background: #1e2227;
+      border: 1px solid #2d3239;
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .manage-meta-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #9aa0a6;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .manage-meta-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: #f1f4f9;
+      font-family: monospace;
+    }
+    .manage-section-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #f1f4f9;
+      margin: 0 0 16px 0;
+    }
+    .manage-table-container {
+      border: 1px solid #2d3239;
+      border-radius: 8px;
+      background: #1e2227;
+      overflow: hidden;
+    }
+    .manage-projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .manage-projects-table thead th {
+      font-size: 12px;
+      font-weight: 500;
+      color: #9aa0a6;
+      padding: 12px 16px;
+      border-bottom: 1px solid #2d3239;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .manage-projects-table tbody td {
+      font-size: 13.5px;
+      color: #f1f4f9;
+      padding: 14px 16px;
+      border-bottom: 1px solid #282c32;
+    }
+    .manage-projects-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .project-name-cell {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .project-name-text {
+      font-weight: 500;
+      color: #f1f4f9;
+    }
+    .project-id-text {
+      color: #9aa0a6;
+      font-family: monospace;
+      font-size: 13px;
+    }
+    .project-actions-kebab-btn {
+      background: transparent;
+      border: none;
+      color: #b9c0cc;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .project-actions-kebab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f4f9;
+    }
+
+    /* DROPDOWNS */
+    .manage-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 4px;
+      background: #282c32;
+      border: 1px solid #50638b;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      z-index: 1000;
+      min-width: 260px;
+      padding: 6px 0;
+    }
+    .manage-dropdown-menu.project-menu {
+      left: auto;
+      right: 0;
+      min-width: 200px;
+    }
+    .manage-dropdown-item {
+      padding: 9px 16px;
+      font-size: 13px;
+      color: #f1f4f9;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .manage-dropdown-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #839cff;
+    }
+
+    /* RIGHT INFO PANEL (IAM) */
+    .manage-right-panel {
+      width: 380px;
+      min-width: 340px;
+      border-left: 1px solid #282c32;
+      background: #181b1f;
+      padding: 24px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    }
+    .manage-right-panel.hidden {
+      display: none !important;
+    }
+    .iam-account-title {
+      font-size: 17px;
+      font-weight: 500;
+      color: #f1f4f9;
+      margin: 0 0 8px 0;
+    }
+    .iam-account-desc {
+      font-size: 12.5px;
+      color: #9aa0a6;
+      line-height: 1.45;
+      margin: 0 0 16px 0;
+    }
+    .iam-add-principal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 16px;
+      border: 1px solid #50638b;
+      border-radius: 9999px;
+      background: transparent;
+      color: #839cff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .iam-add-principal-btn:hover {
+      background: rgba(131, 156, 255, 0.08);
+      border-color: #839cff;
+    }
+    .iam-switch-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0 8px;
+      border-top: 1px solid rgba(80, 99, 139, 0.2);
+    }
+    .iam-switch-container {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .iam-switch-container input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .iam-switch-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #50638b;
+      transition: .2s;
+      border-radius: 18px;
+    }
+    .iam-switch-slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .2s;
+      border-radius: 50%;
+    }
+    .iam-switch-container input:checked + .iam-switch-slider {
+      background-color: #839cff;
+    }
+    .iam-switch-container input:checked + .iam-switch-slider:before {
+      transform: translateX(16px);
+      background-color: #0b1f44;
+    }
+    .iam-switch-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .iam-switch-title {
+      font-size: 13px;
+      color: #f1f4f9;
+      font-weight: 500;
+    }
+    .iam-switch-desc {
+      font-size: 11.5px;
+      color: #9aa0a6;
+      line-height: 1.35;
+    }
+    .iam-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #23272e;
+      border: 1px solid #363d47;
+      border-radius: 6px;
+      padding: 0 10px;
+      height: 34px;
+      margin-top: 6px;
+    }
+    .iam-filter-bar .filter-label {
+      font-size: 12px;
+      color: #9aa0a6;
+      font-weight: 500;
+    }
+    .iam-filter-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #f1f4f9;
+      font-size: 12.5px;
+      outline: none;
+    }
+    .iam-filter-input::placeholder {
+      color: #717781;
+    }
+    .iam-filter-help-btn {
+      background: transparent;
+      border: none;
+      color: #9aa0a6;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+    .iam-tree-table {
+      border: 1px solid #2d3239;
+      border-radius: 6px;
+      background: #1e2227;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .iam-tree-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid #2d3239;
+      font-size: 12px;
+      font-weight: 500;
+      color: #9aa0a6;
+    }
+    .iam-role-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 12px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.015);
+      border-bottom: 1px solid rgba(80, 99, 139, 0.15);
+    }
+    .iam-role-header:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .iam-node-arrow {
+      color: #9aa0a6;
+      transition: transform 0.15s;
+    }
+    .iam-node-arrow.collapsed {
+      transform: rotate(-90deg);
+    }
+    .iam-role-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #f1f4f9;
+    }
+    .iam-principal-child {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px 9px 36px;
+      border-bottom: 1px solid rgba(80, 99, 139, 0.1);
+      transition: background 0.15s;
+    }
+    .iam-principal-child:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .iam-principal-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+    .iam-principal-email {
+      font-size: 12.5px;
+      color: #e3e3e3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .iam-principal-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+    .iam-principal-child:hover .iam-principal-actions {
+      opacity: 1;
+    }
+    .iam-action-icon-btn {
+      background: transparent;
+      border: none;
+      color: #9aa0a6;
+      cursor: pointer;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .iam-action-icon-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f1f4f9;
+    }
+
   </style>
 </head>
 <body>
@@ -2267,7 +2896,7 @@
         </svg>
       </button>
       <!-- User Avatar -->
-      <div class="avatar-circle" title="Google Account">
+      <div class="avatar-circle" title="Google Account: Luis Fernando Armas Fuertes (luisfernando1942.a@gmail.com)" id="userAvatarBtn" onclick="toggleAccountMenu(event)" style="cursor:pointer;position:relative;">
         <svg viewBox="0 0 36 36" width="32" height="32">
           <circle cx="18" cy="18" r="18" fill="#00897b"/>
           <circle cx="18" cy="15" r="7" fill="#fdd835"/>
@@ -2277,7 +2906,44 @@
           <path d="M15 17.5q3 2 6 0" stroke="#212121" stroke-width="1.3" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
-    </div>
+
+      <!-- Google Account Chooser Menu Overlay -->
+      <div id="accountChooserPopover" class="cfc-accountchooser-menu" style="display: none;" onclick="event.stopPropagation()">
+        <div class="cfc-accountchooser-details">
+          <div class="cfc-profilepicture">
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocJ-yOhzV12eDtxzT3IsKxAmhh49Bg6vJOwv7lh31Dn91HRvIzhnPA=s96-c" alt="Luis Fernando Armas Fuertes" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/a/default-user=s96-c';">
+          </div>
+          <div class="cfc-accountchooser-links">
+            <div class="cfc-profilename"><b>Luis Fernando Armas Fuertes</b></div>
+            <div class="cfc-profileusername">luisfernando1942.a@gmail.com</div>
+            <a class="cfc-profilebutton" href="https://accounts.google.com/ManageAccount" target="_blank" rel="noopener noreferrer">
+              <b>Administrar cuenta</b>
+            </a>
+          </div>
+        </div>
+
+        <div class="cfc-menu-section">
+          <a class="cfc-menu-item" href="https://cloud.google.com/terms/cloud-privacy-notice?hl=es_419" target="_blank" rel="noopener noreferrer">
+            <svg class="cfc-menu-icon" viewBox="0 0 48 48"><path d="M24 34c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm12-18h-2v-4c0-5.52-4.48-10-10-10S14 6.48 14 12v4h-2c-2.2 0-4 1.8-4 4v20c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4V20c0-2.2-1.8-4-4-4zm-18.2-4c0-3.42 2.78-6.2 6.2-6.2s6.2 2.78 6.2 6.2v4H17.8v-4zM36 40H12V20h24v20z"/></svg>
+            <span>Privacidad de Google Cloud</span>
+            <svg class="cfc-external-icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </a>
+          <a class="cfc-menu-item" href="https://cloud.google.com/terms" target="_blank" rel="noopener noreferrer">
+            <svg class="cfc-menu-icon" viewBox="0 0 18 18"><path d="M9 9a3 3 0 1 0-3-3c0 1.655 1.344 3 3 3zm0 2c-2 0-6 1-6 3v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-1c0-2-4-3-6-3z" fill-rule="evenodd"/></svg>
+            <span>Condiciones del Servicio de Google Cloud</span>
+          </a>
+          <a class="cfc-menu-item" onclick="toggleAccountMenu(); switchSection('account-management');" style="cursor: pointer;">
+            <svg class="cfc-menu-icon" viewBox="0 0 18 18"><path d="M14.4 9.8c0-.3.1-.5.1-.8s0-.5-.1-.8l1.7-1.3a.4.4 0 00.1-.5l-1.6-2.8a.4.4 0 00-.5-.2l-2 .8a6 6 0 00-1.4-.8L10.4 1.3A.4.4 0 0010 1H6.8a.4.4 0 00-.4.3L6.1 3.4a6 6 0 00-1.4.8l-2-.8a.4.4 0 00-.5.2L.6 6.4a.4.4 0 00.1.5l1.7 1.3c-.1.3-.1.5-.1.8s0 .5.1.8L.7 11.1a.4.4 0 00-.1.5l1.6 2.8c.1.2.3.2.5.2l2-.8c.4.3.9.6 1.4.8l.3 2.1c0 .2.2.3.4.3H10c.2 0 .4-.1.4-.3l.3-2.1c.5-.2 1-.5 1.4-.8l2 .8c.2 0 .4 0 .5-.2l1.6-2.8a.4.4 0 00-.1-.5l-1.7-1.3zM8.4 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            <span>Administración de cuentas (Facturación)</span>
+          </a>
+        </div>
+
+        <div class="cfc-accountchooser-buttons">
+          <a class="cfc-action-btn" href="https://accounts.google.com/AddSession" target="_blank" rel="noopener noreferrer">Agregar cuenta</a>
+          <a class="cfc-action-btn" href="https://accounts.google.com/Logout" target="_blank" rel="noopener noreferrer">Salir</a>
+        </div>
+      </div>
+</div>
   </header>
 
   <!-- ========================================================================
@@ -2470,7 +3136,7 @@
 
         <!-- Billing administration -->
         <div class="nav-group-header">Billing administration</div>
-        <a class="nav-item">
+        <a class="nav-item" id="nav-account-management" onclick="switchSection('account-management')">
           <div class="nav-item-left">
             <svg viewBox="0 0 18 18"><path d="M14.4 9.8c0-.3.1-.5.1-.8s0-.5-.1-.8l1.7-1.3a.4.4 0 00.1-.5l-1.6-2.8a.4.4 0 00-.5-.2l-2 .8a6 6 0 00-1.4-.8L10.4 1.3A.4.4 0 0010 1H6.8a.4.4 0 00-.4.3L6.1 3.4a6 6 0 00-1.4.8l-2-.8a.4.4 0 00-.5.2L.6 6.4a.4.4 0 00.1.5l1.7 1.3c-.1.3-.1.5-.1.8s0 .5.1.8L.7 11.1a.4.4 0 00-.1.5l1.6 2.8c.1.2.3.2.5.2l2-.8c.4.3.9.6 1.4.8l.3 2.1c0 .2.2.3.4.3H10c.2 0 .4-.1.4-.3l.3-2.1c.5-.2 1-.5 1.4-.8l2 .8c.2 0 .4 0 .5-.2l1.6-2.8a.4.4 0 00-.1-.5l-1.7-1.3zM8.4 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
             <span>Account management</span>
@@ -4060,6 +4726,205 @@
         </div>
       </section>
 
+      <!-- ========================================================================
+           VIEW: ACCOUNT MANAGEMENT (ADMINISTRACIÓN DE CUENTAS)
+           ======================================================================== -->
+      <section class="view-section" id="view-account-management">
+        <!-- Top Page Toolbar -->
+        <div class="manage-page-toolbar">
+          <div class="manage-toolbar-left">
+            <h1 class="manage-page-title">Administración de cuentas</h1>
+            <button class="manage-toolbar-btn disabled" disabled title="Organización no disponible">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+              </svg>
+              <span>Cambiar organización</span>
+            </button>
+            <div style="position:relative;">
+              <button class="manage-toolbar-btn icon-only" title="Más acciones Administración de cuentas" onclick="toggleManageKebab(event)">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"/>
+                </svg>
+              </button>
+              <div id="manageKebabMenu" class="manage-dropdown-menu" style="display:none;" onclick="event.stopPropagation()">
+                <div class="manage-dropdown-item" onclick="alert('Cambiar el nombre de la cuenta de facturación: Pago de Firebase')">Cambiar el nombre de la cuenta de facturación</div>
+                <div class="manage-dropdown-item" onclick="alert('Cerrar la cuenta de facturación: 0131E5-07A0B1-7EF13B')">Cerrar la cuenta de facturación</div>
+              </div>
+            </div>
+          </div>
+          <div class="manage-toolbar-right">
+            <button class="manage-toolbar-link-btn" onclick="window.open('https://cloud.google.com/billing/docs/how-to/manage-billing-account', '_blank')">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+              </svg>
+              <span>Más información</span>
+            </button>
+            <button id="toggleInfoPanelBtn" class="manage-pill-toggle-btn" onclick="toggleInfoPanel()">
+              <svg id="infoPanelIcon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/>
+              </svg>
+              <span id="infoPanelBtnText">Ocultar panel de información</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Manage Split Content -->
+        <div class="manage-main-split" id="manageMainSplit">
+          <!-- Left Column: Details + Linked Projects -->
+          <div class="manage-left-col" id="manageLeftCol">
+            <!-- Account Metadata Cards -->
+            <div class="manage-meta-grid">
+              <div class="manage-meta-card">
+                <div class="manage-meta-label">ID de cuenta de facturación</div>
+                <div class="manage-meta-val">0131E5-07A0B1-7EF13B</div>
+              </div>
+              <div class="manage-meta-card">
+                <div class="manage-meta-label">Tipo de cuenta</div>
+                <div class="manage-meta-val">Directa</div>
+              </div>
+            </div>
+
+            <!-- Linked Projects Section -->
+            <div class="manage-projects-section">
+              <h2 class="manage-section-title">Proyectos vinculados con esta cuenta de facturación</h2>
+              
+              <div class="manage-table-container">
+                <table class="manage-projects-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 45%;">Nombre del proyecto</th>
+                      <th style="width: 40%;">ID de proyecto</th>
+                      <th style="width: 15%; text-align: right;">
+                        <span style="display:inline-flex; align-items:center; gap:4px;">
+                          Acciones
+                          <svg viewBox="0 0 18 18" width="14" height="14" fill="#9aa0a6" title="Ventana emergente de ayuda"><path d="M9 1a8 8 0 100 16A8 8 0 009 1zm.8 12.2H8.2v-1.6h1.6v1.6zm1.2-4.9l-.7.7c-.6.6-1 1.1-1 2.3H8.3v-.5c0-1 .4-1.8 1.1-2.4l1-1c.3-.3.5-.7.5-1.2 0-.9-.7-1.7-1.7-1.7s-1.7.8-1.7 1.7H6.1c0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4c0 .8-.3 1.5-.9 2.1z"/></svg>
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="project-name-cell">
+                          <svg class="project-badge-icon" viewBox="0 0 24 24" width="20" height="20">
+                            <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" fill="#1a73e8" opacity="0.2"/>
+                            <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" fill="none" stroke="#839cff" stroke-width="1.5"/>
+                            <circle cx="12" cy="12" r="3.5" fill="#839cff"/>
+                          </svg>
+                          <span class="project-name-text">Crossbox</span>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="project-id-text">crossbox-668a3</span>
+                      </td>
+                      <td style="text-align: right; position: relative;">
+                        <button class="project-actions-kebab-btn" title="Abre el menú ampliado para más opciones" onclick="toggleProjectKebab(event)">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"/>
+                          </svg>
+                        </button>
+                        <div id="projectKebabMenu" class="manage-dropdown-menu project-menu" style="display:none;" onclick="event.stopPropagation()">
+                          <div class="manage-dropdown-item" onclick="alert('Inhabilitar facturación para Crossbox')">Inhabilitar facturación</div>
+                          <div class="manage-dropdown-item" onclick="alert('Cambiar la facturación para Crossbox')">Cambiar la facturación</div>
+                          <div class="manage-dropdown-item" onclick="alert('Bloquear facturación para Crossbox')">Bloquear facturación</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Info Panel / IAM Permissions -->
+          <div class="manage-right-panel" id="manageRightPanel">
+            <div class="iam-panel-header">
+              <h2 class="iam-account-title">Pago de Firebase</h2>
+              <p class="iam-account-desc">Edita o borra los roles que aparecen a continuación, o selecciona "Agregar principal" para otorgar acceso nuevo.</p>
+              
+              <div class="iam-add-btn-row">
+                <button class="iam-add-principal-btn" onclick="alert('Función de agregar principal')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                  </svg>
+                  <span>Agregar principal</span>
+                </button>
+              </div>
+
+              <!-- Inherited roles switch -->
+              <div class="iam-switch-row">
+                <label class="iam-switch-container">
+                  <input type="checkbox" id="iamInheritedSwitch" checked>
+                  <span class="iam-switch-slider"></span>
+                </label>
+                <div class="iam-switch-labels">
+                  <span class="iam-switch-title">Mostrar roles heredados en la tabla</span>
+                  <span class="iam-switch-desc">Muestra roles heredados de los recursos superiores en la siguiente tabla</span>
+                </div>
+              </div>
+
+              <!-- Filter bar -->
+              <div class="iam-filter-bar">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="#9aa0a6" class="filter-icon">
+                  <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+                </svg>
+                <span class="filter-label">Filtro</span>
+                <input type="text" class="iam-filter-input" placeholder="Escribir el nombre o valor de la propiedad">
+                <button class="iam-filter-help-btn" title="Ayuda con el filtrado.">
+                  <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor">
+                    <path d="M9 1a8 8 0 100 16A8 8 0 009 1zm.8 12.2H8.2v-1.6h1.6v1.6zm1.2-4.9l-.7.7c-.6.6-1 1.1-1 2.3H8.3v-.5c0-1 .4-1.8 1.1-2.4l1-1c.3-.3.5-.7.5-1.2 0-.9-.7-1.7-1.7-1.7s-1.7.8-1.7 1.7H6.1c0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4c0 .8-.3 1.5-.9 2.1z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Roles / Principals Tree Table -->
+              <div class="iam-tree-table">
+                <div class="iam-tree-header">
+                  <span>Función/Principal</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+                  </svg>
+                </div>
+
+                <!-- Role Group Node -->
+                <div class="iam-role-node">
+                  <div class="iam-role-header" onclick="toggleIamRoleNode(this)">
+                    <svg class="iam-node-arrow" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                    <span class="iam-role-name">Administrador de cuentas de facturación (1)</span>
+                  </div>
+
+                  <!-- Principal Child Item -->
+                  <div class="iam-principal-child" id="iamPrincipalChild">
+                    <div class="iam-principal-info">
+                      <svg class="iam-principal-avatar-icon" viewBox="0 0 24 24" width="18" height="18" fill="#839cff">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                      </svg>
+                      <span class="iam-principal-email">luisfernando1942.a@gmail.com</span>
+                    </div>
+                    <div class="iam-principal-actions">
+                      <button class="iam-action-icon-btn" title="Editar entidad">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                      </button>
+                      <button class="iam-action-icon-btn" title="Quitar">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                          <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -5020,6 +5885,92 @@
       document.body.removeChild(a);
     }
 
+    
+    // ==========================================================================
+    // ACCOUNT CHOOSER POPOVER & ACCOUNT MANAGEMENT SCRIPTS
+    // ==========================================================================
+    function toggleAccountMenu(event) {
+      if (event) event.stopPropagation();
+      const popover = document.getElementById('accountChooserPopover');
+      if (!popover) return;
+      if (popover.style.display === 'none' || popover.style.display === '') {
+        popover.style.display = 'block';
+      } else {
+        popover.style.display = 'none';
+      }
+    }
+
+    function toggleInfoPanel() {
+      const panel = document.getElementById('manageRightPanel');
+      const btnText = document.getElementById('infoPanelBtnText');
+      if (!panel || !btnText) return;
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        btnText.innerText = 'Ocultar panel de información';
+      } else {
+        panel.classList.add('hidden');
+        btnText.innerText = 'Mostrar panel de información';
+      }
+    }
+
+    function toggleManageKebab(event) {
+      if (event) event.stopPropagation();
+      const menu = document.getElementById('manageKebabMenu');
+      if (!menu) return;
+      menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+
+    function toggleProjectKebab(event) {
+      if (event) event.stopPropagation();
+      const menu = document.getElementById('projectKebabMenu');
+      if (!menu) return;
+      menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+
+    function toggleIamRoleNode(headerEl) {
+      const arrow = headerEl.querySelector('.iam-node-arrow');
+      const child = document.getElementById('iamPrincipalChild');
+      if (!child || !arrow) return;
+      if (child.style.display === 'none') {
+        child.style.display = 'flex';
+        arrow.classList.remove('collapsed');
+      } else {
+        child.style.display = 'none';
+        arrow.classList.add('collapsed');
+      }
+    }
+
+    // Global click listener to close popovers when clicking outside
+    document.addEventListener('click', function(e) {
+      const popover = document.getElementById('accountChooserPopover');
+      const avatarBtn = document.getElementById('userAvatarBtn');
+      if (popover && popover.style.display === 'block') {
+        if (!popover.contains(e.target) && (!avatarBtn || !avatarBtn.contains(e.target))) {
+          popover.style.display = 'none';
+        }
+      }
+      const manageKebab = document.getElementById('manageKebabMenu');
+      if (manageKebab && manageKebab.style.display === 'block') {
+        manageKebab.style.display = 'none';
+      }
+      const projectKebab = document.getElementById('projectKebabMenu');
+      if (projectKebab && projectKebab.style.display === 'block') {
+        projectKebab.style.display = 'none';
+      }
+    });
+
+    // Escape key closes menus
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const popover = document.getElementById('accountChooserPopover');
+        if (popover) popover.style.display = 'none';
+        const manageKebab = document.getElementById('manageKebabMenu');
+        if (manageKebab) manageKebab.style.display = 'none';
+        const projectKebab = document.getElementById('projectKebabMenu');
+        if (projectKebab) projectKebab.style.display = 'none';
+      }
+    });
+
     function switchSection(sec) {
       document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('selected'));
@@ -5041,6 +5992,14 @@
         document.getElementById('view-payment-methods').classList.add('active');
         if (document.getElementById('nav-payment-methods')) document.getElementById('nav-payment-methods').classList.add('selected');
         if (bc) bc.innerText = 'Payment method';
+      } else if (sec === 'account-management' || sec === 'manage') {
+        document.getElementById('view-account-management').classList.add('active');
+        if (document.getElementById('nav-account-management')) document.getElementById('nav-account-management').classList.add('selected');
+        if (bc) bc.innerText = 'Account management';
+        try {
+          const prefix = window.location.pathname.startsWith('/cloud-console') ? '/cloud-console' : '';
+          window.history.pushState(null, '', prefix + '/billing/0131E5-07A0B1-7EF13B/manage?project=crossbox-668a3');
+        } catch(e) {}
       } else if (sec === 'overview') {
         document.getElementById('view-overview').classList.add('active');
         if (document.getElementById('nav-overview')) document.getElementById('nav-overview').classList.add('selected');
@@ -5111,7 +6070,13 @@
       if (m && m[1] !== '/billing' && m[1] !== '/welcome') {
         prefix = m[1];
       }
-      window.history.replaceState(null, '', prefix + '/billing/0131E5-07A0B1-7EF13B?project=crossbox-668a3');
+      const isManage = p.includes('/manage') || window.location.search.includes('view=manage') || window.location.hash.includes('manage');
+      if (isManage) {
+        window.history.replaceState(null, '', prefix + '/billing/0131E5-07A0B1-7EF13B/manage?project=crossbox-668a3');
+        switchSection('account-management');
+      } else {
+        window.history.replaceState(null, '', prefix + '/billing/0131E5-07A0B1-7EF13B?project=crossbox-668a3');
+      }
       document.querySelectorAll('a[href^="/"]').forEach(a => {
         const raw = a.getAttribute('href');
         if (prefix && !raw.startsWith(prefix)) a.setAttribute('href', prefix + raw);
