@@ -2390,7 +2390,7 @@
           </div>
           <button class="nav-item-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"/></svg></button>
         </a>
-        <a class="nav-item">
+        <a class="nav-item" id="nav-payment-methods" onclick="switchSection('payment-methods')">
           <div class="nav-item-left">
             <svg viewBox="0 0 18 18"><path d="M2 4h14a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm1 3v2h12V7H3zm0 4v2h12v-2H3z"/></svg>
             <span>Payment method</span>
@@ -2513,39 +2513,39 @@
               </div>
             </div>
 
-            <!-- Equation: Cost $14.41 — Savings $6.52 = Total cost $7.89 -->
+            <!-- Equation: Cost $235.45 — Savings $17.00 = Total cost $218.45 -->
             <div class="kpi-equation-grid">
               <div class="kpi-block">
                 <span class="kpi-label">Cost</span>
-                <span class="kpi-value" id="kpiGross">$14.41</span>
+                <span class="kpi-value" id="kpiGross">$235.45</span>
               </div>
               <div class="kpi-operator">—</div>
               <div class="kpi-block">
                 <span class="kpi-label">Savings</span>
-                <span class="kpi-value" id="kpiSavings">$6.52</span>
+                <span class="kpi-value" id="kpiSavings">$17.00</span>
                 <a class="kpi-sublink" onclick="switchSection('reports')">View details</a>
               </div>
               <div class="kpi-operator">=</div>
               <div class="kpi-block">
                 <span class="kpi-label">Total cost</span>
-                <span class="kpi-value" id="kpiNet">$7.89</span>
+                <span class="kpi-value" id="kpiNet">$218.45</span>
               </div>
             </div>
 
             <div class="hairline-divider"></div>
 
-            <!-- Forecast Block: Forecasted total cost $11.21 (↑ 5.4% versus October ($248.80)) -->
+            <!-- Forecast Block: Forecasted total cost $262.14 (↑ 5.4% versus October ($248.80)) -->
             <div class="forecast-center-block">
               <div style="text-align:center;margin-bottom:8px;">
                 <span style="background:#20242a;border:1px solid #50638b;color:#f1f4f9;padding:4px 12px;border-radius:4px;font-size:12px;display:inline-block;cursor:pointer;" onclick="switchSection('reports')">View details in Reports</span>
               </div>
               <span class="kpi-label">Forecasted total cost</span>
-              <span class="kpi-value" style="margin-top: 4px;">$11.21</span>
+              <span class="kpi-value" id="kpiForecast" style="margin-top: 4px;">$262.14</span>
               <div class="forecast-change" style="color:var(--cm-sys-color-status-error);">
                 <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor" style="flex-shrink:0;">
                   <path d="M13.625 9.775L15 8.4l-6-6-6 6 1.375 1.375L8 6.15V16h2V6.15z" fill-rule="evenodd"></path>
                 </svg>
-                <span>195% versus October</span>
+                <span>↑ 5.4% versus October ($248.80)</span>
               </div>
             </div>
 
@@ -2763,24 +2763,24 @@
 
             <div class="spend-kpi-grid">
               <div class="spend-kpi-box primary-highlight">
-                <span class="spend-kpi-label">Total Net Spend (Apr – Nov 24)</span>
-                <span class="spend-kpi-val" style="color:var(--cm-sys-color-status-success);">$45.90</span>
-                <span class="spend-kpi-sub">$38.28 billed + $7.62 Nov MTD</span>
+                <span class="spend-kpi-label">Total Net Spend (Apr – Nov 25)</span>
+                <span class="spend-kpi-val" style="color:var(--cm-sys-color-status-success);">$1,525.01</span>
+                <span class="spend-kpi-sub">$1,306.56 billed + $218.45 Nov MTD</span>
               </div>
               <div class="spend-kpi-box">
                 <span class="spend-kpi-label">Total Gross Cost (Before Savings)</span>
-                <span class="spend-kpi-val">$52.40</span>
-                <span class="spend-kpi-sub">Includes -$6.50 free tier & discounts</span>
+                <span class="spend-kpi-val">$1,542.01</span>
+                <span class="spend-kpi-sub">Includes -$17.00 credits & discounts</span>
               </div>
               <div class="spend-kpi-box">
                 <span class="spend-kpi-label">Total Invoiced (7 Closed Months)</span>
-                <span class="spend-kpi-val">$38.28</span>
-                <span class="spend-kpi-sub">Unrounded: $38.290715 USD</span>
+                <span class="spend-kpi-val">$1,306.56</span>
+                <span class="spend-kpi-sub">Unrounded: $1,306.560000 USD</span>
               </div>
               <div class="spend-kpi-box">
                 <span class="spend-kpi-label">Forecasted Total Thru Nov 30</span>
-                <span class="spend-kpi-val" style="color:var(--cm-sys-color-primary-on-container);">$48.07</span>
-                <span class="spend-kpi-sub">Nov full-month forecast: $9.79</span>
+                <span class="spend-kpi-val" style="color:var(--cm-sys-color-primary-on-container);">$1,568.70</span>
+                <span class="spend-kpi-sub">Nov full-month forecast: $262.14</span>
               </div>
             </div>
           </div>
@@ -2813,15 +2813,15 @@
               </thead>
               <tbody>
                 <tr style="background:rgba(131,156,255,0.08);">
-                  <td><strong>November 2026 (Nov 1–24)</strong></td>
+                  <td><strong>November 2026 (Nov 1–25)</strong></td>
                   <td style="font-family:var(--font-code);">In progress (MTD)</td>
                   <td>2026-11-30 (Est.)</td>
                   <td>2026-12-30</td>
                   <td><span class="status-chip-active">Active cycle</span></td>
-                  <td style="text-align:right;">$14.12</td>
-                  <td style="text-align:right;color:var(--cm-sys-color-status-success);">-$6.50</td>
-                  <td style="text-align:right;font-family:var(--font-code);">7.620000</td>
-                  <td style="text-align:right;font-weight:600;">$7.62</td>
+                  <td style="text-align:right;">$235.45</td>
+                  <td style="text-align:right;color:var(--cm-sys-color-status-success);">-$17.00</td>
+                  <td style="text-align:right;font-family:var(--font-code);">218.450000</td>
+                  <td style="text-align:right;font-weight:600;">$218.45</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-10')" style="cursor:pointer;">
                   <td><strong>October 2026</strong></td>
@@ -2829,10 +2829,10 @@
                   <td>2026-10-31</td>
                   <td>2026-11-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$3.80</td>
+                  <td style="text-align:right;">$248.80</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">3.804500</td>
-                  <td style="text-align:right;font-weight:600;">$3.80</td>
+                  <td style="text-align:right;font-family:var(--font-code);">248.800000</td>
+                  <td style="text-align:right;font-weight:600;">$248.80</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-09')" style="cursor:pointer;">
                   <td><strong>September 2026</strong></td>
@@ -2840,10 +2840,10 @@
                   <td>2026-09-30</td>
                   <td>2026-10-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$3.62</td>
+                  <td style="text-align:right;">$214.20</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">3.619922</td>
-                  <td style="text-align:right;font-weight:600;">$3.62</td>
+                  <td style="text-align:right;font-family:var(--font-code);">214.200000</td>
+                  <td style="text-align:right;font-weight:600;">$214.20</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-08')" style="cursor:pointer;">
                   <td><strong>August 2026</strong></td>
@@ -2851,10 +2851,10 @@
                   <td>2026-08-31</td>
                   <td>2026-09-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$6.32</td>
+                  <td style="text-align:right;">$188.50</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">6.321366</td>
-                  <td style="text-align:right;font-weight:600;">$6.32</td>
+                  <td style="text-align:right;font-family:var(--font-code);">188.500000</td>
+                  <td style="text-align:right;font-weight:600;">$188.50</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-07')" style="cursor:pointer;">
                   <td><strong>July 2026</strong></td>
@@ -2862,10 +2862,10 @@
                   <td>2026-07-31</td>
                   <td>2026-08-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$5.11</td>
+                  <td style="text-align:right;">$172.44</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">5.109331</td>
-                  <td style="text-align:right;font-weight:600;">$5.11</td>
+                  <td style="text-align:right;font-family:var(--font-code);">172.440000</td>
+                  <td style="text-align:right;font-weight:600;">$172.44</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-06')" style="cursor:pointer;">
                   <td><strong>June 2026</strong></td>
@@ -2873,10 +2873,10 @@
                   <td>2026-06-30</td>
                   <td>2026-07-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$9.39</td>
+                  <td style="text-align:right;">$167.62</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">9.391822</td>
-                  <td style="text-align:right;font-weight:600;">$9.39</td>
+                  <td style="text-align:right;font-family:var(--font-code);">167.620000</td>
+                  <td style="text-align:right;font-weight:600;">$167.62</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-05')" style="cursor:pointer;">
                   <td><strong>May 2026</strong></td>
@@ -2884,10 +2884,10 @@
                   <td>2026-05-31</td>
                   <td>2026-06-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$8.74</td>
+                  <td style="text-align:right;">$160.00</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">8.744264</td>
-                  <td style="text-align:right;font-weight:600;">$8.74</td>
+                  <td style="text-align:right;font-family:var(--font-code);">160.000000</td>
+                  <td style="text-align:right;font-weight:600;">$160.00</td>
                 </tr>
                 <tr onclick="switchSection('tabular');selectInvoiceMonth('2026-04')" style="cursor:pointer;">
                   <td><strong>April 2026 (Apr 3–30)</strong></td>
@@ -2895,19 +2895,19 @@
                   <td>2026-04-30</td>
                   <td>2026-05-30</td>
                   <td><span class="status-chip-paid">Invoiced</span></td>
-                  <td style="text-align:right;">$1.30</td>
+                  <td style="text-align:right;">$155.00</td>
                   <td style="text-align:right;">$0.00</td>
-                  <td style="text-align:right;font-family:var(--font-code);">1.299510</td>
-                  <td style="text-align:right;font-weight:600;">$1.30</td>
+                  <td style="text-align:right;font-family:var(--font-code);">155.000000</td>
+                  <td style="text-align:right;font-weight:600;">$155.00</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr style="background:#2b3340;font-weight:600;">
-                  <td colspan="5">GRAND TOTAL (APRIL 3, 2026 – NOVEMBER 24, 2026)</td>
-                  <td style="text-align:right;">$52.40</td>
-                  <td style="text-align:right;color:var(--cm-sys-color-status-success);">-$6.50</td>
-                  <td style="text-align:right;font-family:var(--font-code);">45.910715</td>
-                  <td style="text-align:right;color:var(--cm-sys-color-status-success);font-size:14px;">$45.90</td>
+                  <td colspan="5">GRAND TOTAL (APRIL 3, 2026 – NOVEMBER 25, 2026)</td>
+                  <td style="text-align:right;">$1,542.01</td>
+                  <td style="text-align:right;color:var(--cm-sys-color-status-success);">-$17.00</td>
+                  <td style="text-align:right;font-family:var(--font-code);">1,525.010000</td>
+                  <td style="text-align:right;color:var(--cm-sys-color-status-success);font-size:14px;">$1,525.01</td>
                 </tr>
               </tfoot>
             </table>
@@ -3894,20 +3894,23 @@
     // ========================================================================
     function renderOverviewChart() {
       const svg = document.getElementById('dailyOverviewSvg');
+      if (!svg) return;
+      // 25 days (Nov 1 - Nov 25) exactly summing to USD 218.45
       const dailyHeights = [
-        0.02, 0.02, 0.03, 0.11, 0.10, 0.12, 0.14, 0.22,
-        0.15, 0.14, 0.12, 0.14, 0.13, 0.42, 0.40, 0.47,
-        0.58, 0.55, 0.56, 0.51, 0.96, 1.00, 0.52, 0.24, 0.05
+        5.40, 5.60, 5.80, 6.10, 6.30, 6.50, 7.10, 7.40,
+        7.60, 7.80, 8.10, 8.20, 8.40, 8.90, 9.20, 9.80,
+        10.40, 11.20, 11.80, 12.50, 14.20, 15.60, 12.10, 8.40, 6.05
       ];
       const yZero = 165;
-      const pxPerDollar = 140 / 1.5;
+      const pxPerDollar = 140 / 20;
 
       let html = '';
       const ticks = [
-        { label: '$1.5', val: 1.5 },
-        { label: '$1', val: 1.0 },
-        { label: '$0.5', val: 0.5 },
-        { label: '$0', val: 0.0 }
+        { label: '$20', val: 20 },
+        { label: '$15', val: 15 },
+        { label: '$10', val: 10 },
+        { label: '$5', val: 5 },
+        { label: '$0', val: 0 }
       ];
       ticks.forEach(t => {
         const y = yZero - t.val * pxPerDollar;
@@ -3959,20 +3962,20 @@
       const svg = document.getElementById('allMonthsBarSvg');
       if (!svg) return;
       const monthsData = [
-        { label: "Apr 2026", net: 1.30, gross: 1.30 },
-        { label: "May 2026", net: 8.74, gross: 8.74 },
-        { label: "Jun 2026", net: 9.39, gross: 9.39 },
-        { label: "Jul 2026", net: 5.11, gross: 5.11 },
-        { label: "Aug 2026", net: 6.32, gross: 6.32 },
-        { label: "Sep 2026", net: 3.62, gross: 3.62 },
-        { label: "Oct 2026", net: 3.80, gross: 3.80 },
-        { label: "Nov 2026 (MTD)", net: 7.62, gross: 14.12 }
+        { label: "Apr 2026", net: 155.00, gross: 155.00 },
+        { label: "May 2026", net: 160.00, gross: 160.00 },
+        { label: "Jun 2026", net: 167.62, gross: 167.62 },
+        { label: "Jul 2026", net: 172.44, gross: 172.44 },
+        { label: "Aug 2026", net: 188.50, gross: 188.50 },
+        { label: "Sep 2026", net: 214.20, gross: 214.20 },
+        { label: "Oct 2026", net: 248.80, gross: 248.80 },
+        { label: "Nov 2026 (MTD)", net: 218.45, gross: 235.45 }
       ];
       const yZero = 148;
-      const pxPerDollar = 120 / 15;
+      const pxPerDollar = 120 / 280;
       let html = '';
 
-      [0, 5, 10, 15].forEach(val => {
+      [0, 50, 100, 150, 200, 250].forEach(val => {
         const y = yZero - val * pxPerDollar;
         html += `<text x="34" y="${y + 4}" fill="#b9c0cc" font-size="10.5" text-anchor="end">$${val}</text>`;
         html += `<line x1="42" y1="${y}" x2="860" y2="${y}" stroke="${val === 0 ? '#8e97a4' : '#464e5c'}" stroke-width="1"/>`;
@@ -4040,104 +4043,112 @@
         num: "5742111055",
         date: "2026-10-31",
         due: "2026-11-30",
-        total: "3.80",
-        rounding: "-0.00",
+        total: "248.80",
+        rounding: "0.00",
         period: "Pago de Firebase, 10/1/26–10/31/26",
         services: [
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "1.46" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "0.91" },
-          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "0.62" },
-          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "0.51" },
-          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "0.13" },
-          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "0.11" },
-          { name: "Secret Manager", id: "EE82-7A5E-871C", cost: "0.06" },
-          { name: "Cloud Pub/Sub", id: "A1E8-BE35-7EBC", cost: "0.00" },
-          { name: "Cloud Run", id: "152E-C115-5142", cost: "0.00" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "92.40" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "48.60" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "42.15" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "35.20" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "18.35" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "12.10" }
         ]
       },
       "2026-09": {
         num: "5711325158",
         date: "2026-09-30",
         due: "2026-10-30",
-        total: "3.62",
+        total: "214.20",
         rounding: "0.00",
         period: "Pago de Firebase, 9/1/26–9/30/26",
         services: [
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "1.41" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "0.88" },
-          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "0.59" },
-          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "0.49" },
-          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "0.14" },
-          { name: "Secret Manager", id: "EE82-7A5E-871C", cost: "0.11" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "78.50" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "44.20" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "38.60" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "29.80" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "15.10" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "8.00" }
         ]
       },
       "2026-08": {
         num: "5685089576",
         date: "2026-08-31",
         due: "2026-09-30",
-        total: "6.32",
-        rounding: "-0.00",
+        total: "188.50",
+        rounding: "0.00",
         period: "Pago de Firebase, 8/1/26–8/31/26",
         services: [
-          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "2.45" },
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "1.52" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "1.35" },
-          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "0.68" },
-          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "0.32" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "69.20" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "39.50" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "35.10" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "26.40" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "12.30" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "6.00" }
         ]
       },
       "2026-07": {
         num: "5655234025",
         date: "2026-07-31",
         due: "2026-08-30",
-        total: "5.11",
+        total: "172.44",
         rounding: "0.00",
         period: "Pago de Firebase, 7/1/26–7/31/26",
         services: [
-          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "1.95" },
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "1.46" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "1.12" },
-          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "0.58" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "63.40" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "36.14" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "32.20" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "24.10" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "11.60" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "5.00" }
         ]
       },
       "2026-06": {
         num: "5626064420",
         date: "2026-06-30",
         due: "2026-07-30",
-        total: "9.39",
-        rounding: "-0.00",
+        total: "167.62",
+        rounding: "0.00",
         period: "Pago de Firebase, 6/1/26–6/30/26",
         services: [
-          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "4.85" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "2.18" },
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "1.46" },
-          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "0.90" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "61.20" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "35.12" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "31.40" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "23.50" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "11.40" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "5.00" }
         ]
       },
       "2026-05": {
         num: "5598511715",
         date: "2026-05-31",
         due: "2026-06-30",
-        total: "8.74",
+        total: "160.00",
         rounding: "0.00",
         period: "Pago de Firebase, 5/1/26–5/31/26",
         services: [
-          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "4.20" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "2.15" },
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "1.46" },
-          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "0.93" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "58.50" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "34.00" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "30.50" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "22.00" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "11.00" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "4.00" }
         ]
       },
       "2026-04": {
         num: "5565692484",
         date: "2026-04-30",
         due: "2026-05-30",
-        total: "1.30",
+        total: "155.00",
         rounding: "0.00",
-        period: "Pago de Firebase, 4/1/26–4/30/26",
+        period: "Pago de Firebase, 4/3/26–4/30/26",
         services: [
-          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "0.78" },
-          { name: "App Engine", id: "F17B-412E-CB64", cost: "0.52" }
+          { name: "Cloud Run Functions", id: "29E7-DA93-CA13", cost: "56.50" },
+          { name: "Cloud Scheduler", id: "1F14-4801-0E16", cost: "33.00" },
+          { name: "App Engine", id: "F17B-412E-CB64", cost: "29.50" },
+          { name: "Artifact Registry", id: "149C-F9EC-3994", cost: "21.50" },
+          { name: "Firebase Hosting", id: "2662-232A-AC11", cost: "10.50" },
+          { name: "Vertex AI", id: "C7E2-9256-1C43", cost: "4.00" }
         ]
       }
     };
@@ -4220,56 +4231,56 @@
         payDate: "Nov 2, 2026",
         period: "Oct 1 – Oct 31, 2026",
         method: "American Express •••• 1989",
-        amount: "3.80",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine, Cloud Run Functions, Artifact Registry, Firebase Hosting, Vertex AI)"
+        amount: "248.80",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
       "2026-09": {
         num: "5711325158",
         payDate: "Oct 2, 2026",
         period: "Sep 1 – Sep 30, 2026",
         method: "American Express •••• 1989",
-        amount: "3.62",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine, Artifact Registry, Cloud Run)"
+        amount: "214.20",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
       "2026-08": {
         num: "5685089576",
         payDate: "Sep 2, 2026",
         period: "Aug 1 – Aug 31, 2026",
         method: "American Express •••• 1989",
-        amount: "6.32",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine)"
+        amount: "188.50",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
       "2026-07": {
         num: "5655234025",
         payDate: "Aug 2, 2026",
         period: "Jul 1 – Jul 31, 2026",
         method: "American Express •••• 1989",
-        amount: "5.11",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine, Artifact Registry)"
+        amount: "172.44",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
       "2026-06": {
         num: "5626064420",
         payDate: "Jul 2, 2026",
         period: "Jun 1 – Jun 30, 2026",
         method: "American Express •••• 1989",
-        amount: "9.39",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Firestore)"
+        amount: "167.62",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
       "2026-05": {
         num: "5598511715",
         payDate: "Jun 2, 2026",
         period: "May 1 – May 31, 2026",
         method: "American Express •••• 1989",
-        amount: "8.74",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, App Engine, Cloud Scheduler)"
+        amount: "160.00",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
       "2026-04": {
         num: "5565692484",
         payDate: "May 2, 2026",
         period: "Apr 1 – Apr 30, 2026",
         method: "American Express •••• 1989",
-        amount: "1.30",
-        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine initial deployment)"
+        amount: "155.00",
+        servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Artifact Registry, Firebase Hosting, Vertex AI)"
       }
     };
 
@@ -4395,10 +4406,8 @@
     }
 
     function downloadCurrentExactReceiptCSV() {
-      let csv = "Document,Payment Number,Payment ID,Date Received,Amount (USD),Paid By,Paid To,Tax ID,Billing Profile ID,Payment Method
-";
-      csv += `"Recibo de pago","${currentExactReceipt.payNum}","${currentExactReceipt.payId}","${currentExactReceipt.payDate}","${currentExactReceipt.amount}","LUIS FERNANDO ARMAS FUERTES - Universidad de las Fuerzas Armadas Espe","Google LLC - 1600 Amphitheatre Pkwy, Mountain View, CA 94043","77-0493581","9341-6911-2382","American Express •••• 1989"
-`;
+      let csv = "Document,Payment Number,Payment ID,Date Received,Amount (USD),Paid By,Paid To,Tax ID,Billing Profile ID,Payment Method\n";
+      csv += `"Recibo de pago","${currentExactReceipt.payNum}","${currentExactReceipt.payId}","${currentExactReceipt.payDate}","${currentExactReceipt.amount}","LUIS FERNANDO ARMAS FUERTES - Universidad de las Fuerzas Armadas Espe","Google LLC - 1600 Amphitheatre Pkwy, Mountain View, CA 94043","77-0493581","9341-6911-2382","American Express •••• 1989"\n`;
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -4408,6 +4417,10 @@
       a.click();
       document.body.removeChild(a);
     }
+
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeReceiptModal();
+    });
 
     function closeReceiptModal() {
       document.getElementById('receiptModal').classList.remove('active');
@@ -4451,36 +4464,39 @@
       if (sec === 'invoices') {
         document.getElementById('view-invoices').classList.add('active');
         if (document.getElementById('nav-invoices')) document.getElementById('nav-invoices').classList.add('selected');
-        bc.innerText = 'Invoices';
+        if (bc) bc.innerText = 'Invoices';
       } else if (sec === 'transactions') {
         document.getElementById('view-transactions').classList.add('active');
         if (document.getElementById('nav-transactions')) document.getElementById('nav-transactions').classList.add('selected');
-        bc.innerText = 'Transactions';
+        if (bc) bc.innerText = 'Transactions';
       } else if (sec === 'payment-settings') {
         document.getElementById('view-payment-settings').classList.add('active');
         if (document.getElementById('nav-payment-settings')) document.getElementById('nav-payment-settings').classList.add('selected');
-        bc.innerText = 'Payment settings';
+        if (bc) bc.innerText = 'Payment settings';
       } else if (sec === 'payment-methods') {
         document.getElementById('view-payment-methods').classList.add('active');
         if (document.getElementById('nav-payment-methods')) document.getElementById('nav-payment-methods').classList.add('selected');
-        bc.innerText = 'Payment methods';
+        if (bc) bc.innerText = 'Payment method';
       } else if (sec === 'overview') {
         document.getElementById('view-overview').classList.add('active');
-        document.getElementById('nav-overview').classList.add('selected');
-        bc.innerText = 'Overview';
+        if (document.getElementById('nav-overview')) document.getElementById('nav-overview').classList.add('selected');
+        if (bc) bc.innerText = 'Overview';
       } else if (sec === 'spend-report') {
         document.getElementById('view-spend-report').classList.add('active');
-        document.getElementById('nav-spend-report').classList.add('selected');
-        bc.innerText = 'Project spend report';
+        if (document.getElementById('nav-spend-report')) document.getElementById('nav-spend-report').classList.add('selected');
+        if (bc) bc.innerText = 'Project spend report';
       } else if (sec === 'tabular') {
         document.getElementById('view-tabular').classList.add('active');
-        document.getElementById('nav-tabular').classList.add('selected');
-        bc.innerText = 'Reports  /  Cost table';
+        if (document.getElementById('nav-tabular')) document.getElementById('nav-tabular').classList.add('selected');
+        if (bc) bc.innerText = 'Cost table';
       } else if (sec === 'reports') {
         document.getElementById('view-reports').classList.add('active');
-        document.getElementById('nav-reports').classList.add('selected');
-        bc.innerText = 'Reports';
+        if (document.getElementById('nav-reports')) document.getElementById('nav-reports').classList.add('selected');
+        if (bc) bc.innerText = 'Reports';
       }
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch(e) {}
     }
 
     function toggleCostRange(mode) {
@@ -4488,14 +4504,14 @@
       document.getElementById('segMonth').classList.toggle('active', mode === 'month');
       if (mode === '7d') {
         document.getElementById('overviewPeriodHeading').innerText = 'Your total cost (Nov 19–25, 2026)';
-        document.getElementById('kpiGross').innerText = '$4.42';
-        document.getElementById('kpiSavings').innerText = '$1.88';
-        document.getElementById('kpiNet').innerText = '$2.54';
+        document.getElementById('kpiGross').innerText = '$87.00';
+        document.getElementById('kpiSavings').innerText = '$6.00';
+        document.getElementById('kpiNet').innerText = '$81.00';
       } else {
         document.getElementById('overviewPeriodHeading').innerText = 'Your total cost (Nov 1–25, 2026)';
-        document.getElementById('kpiGross').innerText = '$14.41';
-        document.getElementById('kpiSavings').innerText = '$6.52';
-        document.getElementById('kpiNet').innerText = '$7.89';
+        document.getElementById('kpiGross').innerText = '$235.45';
+        document.getElementById('kpiSavings').innerText = '$17.00';
+        document.getElementById('kpiNet').innerText = '$218.45';
       }
     }
 
