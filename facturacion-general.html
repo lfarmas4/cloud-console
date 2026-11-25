@@ -1453,126 +1453,6 @@
       background-color: rgba(131, 156, 255, 0.12);
     }
 
-    /* Modal Overlay */
-    .receipt-modal-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .receipt-modal-backdrop.active {
-      display: flex;
-    }
-
-    .receipt-card {
-      background: #ffffff;
-      color: #202124;
-      width: 100%;
-      max-width: 680px;
-      border-radius: 8px;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.5);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      max-height: 90vh;
-      font-family: var(--font-ui);
-    }
-
-    .receipt-header {
-      background: #f8f9fa;
-      border-bottom: 1px solid #dadce0;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .receipt-body {
-      padding: 24px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      line-height: 1.5;
-    }
-
-    .receipt-meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      background: #f8f9fa;
-      border-radius: 6px;
-      padding: 14px 18px;
-      font-size: 13px;
-    }
-
-    .receipt-items-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin-top: 10px;
-    }
-
-    .receipt-items-table th {
-      border-bottom: 2px solid #dadce0;
-      padding: 8px 10px;
-      text-align: left;
-      font-weight: 600;
-      color: #3c4043;
-    }
-
-    .receipt-items-table td {
-      border-bottom: 1px solid #e8eaed;
-      padding: 10px;
-      color: #202124;
-    }
-
-    .receipt-footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      border-top: 1px solid #dadce0;
-      background: #f8f9fa;
-    }
-
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      .receipt-modal-backdrop, .receipt-modal-backdrop * {
-        visibility: visible;
-      }
-      .receipt-modal-backdrop {
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: transparent;
-        padding: 0;
-      }
-      .receipt-card {
-        box-shadow: none;
-        max-width: 100%;
-        border: none;
-      }
-      .no-print {
-        display: none !important;
-      }
-    }
-
-
-    /* ==========================================================================
-       INVOICE BUILDER & CUSTOMIZER STYLES
-       ========================================================================== */
     .invoice-builder-card {
       background-color: var(--cm-sys-color-surface);
       border: 1px solid var(--cm-sys-color-hairline);
@@ -2017,6 +1897,7 @@
        Origin: doc-14-c4-payments.googleusercontent.com
        ========================================================================== */
     .receipt-modal-backdrop {
+      display: none !important;
       position: fixed;
       top: 0;
       left: 0;
@@ -2032,7 +1913,7 @@
     }
 
     .receipt-modal-backdrop.active {
-      display: flex;
+      display: flex !important;
     }
 
     .google-doc-viewer-window {
@@ -3929,65 +3810,6 @@
           </div>
         </div>
       </div>
-
-            <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;background:#f1f3f4;border-radius:6px;padding:12px 16px;font-size:12.5px;">
-              <div>
-                <span style="color:#5f6368;">Receipt Number:</span><br>
-                <strong id="rcptNum" style="color:#202124;">5742111055-REC</strong>
-              </div>
-              <div>
-                <span style="color:#5f6368;">Payment Date:</span><br>
-                <strong id="rcptDate" style="color:#202124;">Nov 2, 2026</strong>
-              </div>
-              <div>
-                <span style="color:#5f6368;">Payment Method:</span><br>
-                <strong id="rcptMethod" style="color:#202124;">American Express •••• 1989</strong>
-              </div>
-            </div>
-
-            <table class="receipt-items-table">
-              <thead>
-                <tr>
-                  <th>Description</th>
-                  <th>Service Period</th>
-                  <th style="text-align:right;">Subtotal</th>
-                  <th style="text-align:right;">Tax (0%)</th>
-                  <th style="text-align:right;">Total Paid</th>
-                </tr>
-              </thead>
-              <tbody id="receiptTableItems">
-                <!-- Dynamically injected -->
-              </tbody>
-            </table>
-
-            <div style="background:#e6f4ea;border:1px solid #ceead6;border-radius:6px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;color:#137333;">
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span style="font-size:16px;">✓</span>
-                <span style="font-size:13px;font-weight:500;">Payment confirmed and processed successfully by Google Payment Corp.</span>
-              </div>
-              <strong style="font-size:16px;" id="rcptTotalBottom">$3.80 USD</strong>
-            </div>
-
-            <div style="font-size:11.5px;color:#70757a;line-height:1.4;">
-              This receipt confirms that the payment was processed automatically against your credit card on file. For questions regarding Google Cloud invoices or tax calculations, visit the Google Cloud Console billing dashboard or contact Google Cloud Support.
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <div class="receipt-footer-row no-print">
-            <span style="font-size:12px;color:#5f6368;">Receipt ID: <span id="rcptFooterId">5742111055</span></span>
-            <div style="display:flex;gap:10px;">
-              <button onclick="downloadCurrentReceiptCSV()" style="background:#fff;border:1px solid #dadce0;color:#3c4043;border-radius:4px;padding:6px 14px;font-size:12.5px;cursor:pointer;">
-                Download CSV
-              </button>
-              <button onclick="closeReceiptModal()" style="background:#1a73e8;border:none;color:#fff;border-radius:4px;padding:6px 16px;font-size:12.5px;font-weight:500;cursor:pointer;">
-                Done
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
 
       <!-- ====================================================================
            VIEW 7: PAYMENT SETTINGS (Configuración de pagos)
