@@ -1641,6 +1641,215 @@
       background: #9ab2ff;
     }
 
+
+    /* ==========================================================================
+       GCP NATIVE INVOICES WHITE CARD (Pixel-Calibrated from screenshot)
+       ========================================================================== */
+    .invoices-page-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 1300px;
+    }
+
+    .invoices-top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 0 4px 0;
+    }
+
+    .invoices-title {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cm-sys-color-on-surface);
+      margin: 0;
+      letter-spacing: -0.2px;
+    }
+
+    .invoices-learn-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      border: 1px solid #3c4043;
+      color: #8ab4f8;
+      border-radius: 18px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .invoices-learn-btn:hover {
+      background-color: rgba(138, 180, 248, 0.08);
+      border-color: #8ab4f8;
+    }
+
+    .invoices-white-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      overflow: hidden;
+      color: #202124;
+      font-family: var(--font-ui);
+    }
+
+    .invoices-card-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .invoices-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-add-filter {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      color: #3c4043;
+      border-radius: 18px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-add-filter:hover {
+      background: #f1f3f4;
+    }
+
+    .btn-custom-invoice-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8f0fe;
+      border: 1px solid #d2e3fc;
+      color: #1a73e8;
+      border-radius: 18px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-custom-invoice-trigger:hover {
+      background: #d2e3fc;
+    }
+
+    .save-filter-link {
+      color: #1a73e8;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .save-filter-link:hover {
+      text-decoration: underline;
+    }
+
+    .gcp-invoices-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .gcp-invoices-table th {
+      padding: 12px 18px;
+      text-align: left;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #5f6368;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: #ffffff;
+    }
+
+    .gcp-invoices-table th.sortable {
+      color: #1a73e8;
+      cursor: pointer;
+    }
+
+    .gcp-invoices-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #202124;
+      vertical-align: middle;
+      font-size: 13px;
+    }
+
+    .gcp-invoices-table tr:hover td {
+      background-color: #f8f9fa;
+    }
+
+    .gcp-invoices-table .row-checkbox {
+      width: 17px;
+      height: 17px;
+      cursor: pointer;
+      accent-color: #1a73e8;
+      border: 1.5px solid #5f6368;
+      border-radius: 2px;
+    }
+
+    .doc-summary-link {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .doc-summary-link:hover {
+      text-decoration: underline;
+    }
+
+    .invoices-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      padding: 12px 20px;
+      font-size: 12.5px;
+      color: #5f6368;
+      background: #ffffff;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .pagination-select {
+      border: none;
+      background: transparent;
+      font-size: 12.5px;
+      color: #5f6368;
+      cursor: pointer;
+      outline: none;
+      font-weight: 500;
+    }
+
+    .pagination-arrow {
+      color: #9aa0a6;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      font-size: 16px;
+      user-select: none;
+    }
+
   </style>
 </head>
 <body>
@@ -2748,252 +2957,199 @@
       <!-- ====================================================================
            VIEW 6: INVOICES & TAX DOCUMENTS (With Custom Invoice Generator)
            ==================================================================== -->
+            <!-- ====================================================================
+           VIEW 6: INVOICES & STATEMENTS (Pixel-Exact from Live GCP Screenshot)
+           ==================================================================== -->
       <section class="view-section" id="view-invoices">
-        <div class="transactions-layout">
-          <!-- Page Header -->
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-            <div>
-              <h1 class="surface-h1">Invoices & Statements</h1>
-              <p style="font-size:13px;color:var(--cm-sys-color-on-surface-variant);margin-top:4px;">
-                Download official Google Cloud tax invoices, view automated settlements with <strong>Visa •••• 6911</strong>, or customize new invoice statements.
-              </p>
-            </div>
+        <div class="invoices-page-container">
+          <!-- Top Heading & Learn more -->
+          <div class="invoices-top-header">
+            <h1 class="invoices-title">Invoices</h1>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="pill-outlined-btn" onclick="toggleInvoiceBuilder()">
-                <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M15 8h-5V3H8v5H3v2h5v5h2v-5h5V8z"/></svg>
-                <span id="btnToggleBuilderText">Custom invoice builder</span>
-              </button>
-              <button class="pill-outlined-btn" onclick="switchSection('transactions')">
-                <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M9 2a7 7 0 100 14A7 7 0 009 2zm0 12a5 5 0 110-10 5 5 0 010 10zm.5-8H8v4l3.5 2.1.7-1.2-2.7-1.6V6z"/></svg>
-                <span>Transactions</span>
+              <button class="invoices-learn-btn" onclick="openReceipt('2026-10')">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                </svg>
+                <span>Learn more</span>
               </button>
             </div>
           </div>
 
-          <!-- Interactive Custom Invoice Builder Panel -->
-          <div class="invoice-builder-card" id="invoiceBuilderPanel" style="display:none;">
-            <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--cm-sys-color-hairline);padding-bottom:12px;">
+          <!-- Interactive Custom Values Drawer / Generator -->
+          <div class="invoice-builder-card" id="invoiceBuilderPanel" style="display:none;background:#202124;border:1px solid #3c4043;color:#ffffff;border-radius:8px;padding:18px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #3c4043;padding-bottom:12px;margin-bottom:16px;">
               <div style="display:flex;align-items:center;gap:8px;">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--cm-sys-color-primary)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                <strong style="font-size:14px;color:var(--cm-sys-color-on-surface);">Generate Custom Google Cloud Tax Invoice / Recibo</strong>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#839cff"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                <strong style="font-size:14px;color:#f1f4f9;">Custom Invoice / Factura Generator (Values Customization)</strong>
               </div>
-              <span style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Auto-populates Google LLC tax header & card Visa •••• 6911</span>
+              <span style="font-size:12px;color:#b9c0cc;">Card memorized: <strong>Visa •••• 6911</strong> • ID: 9341-6911-2382</span>
             </div>
 
-            <div class="builder-grid">
+            <div class="builder-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;">
               <div class="builder-field">
-                <label>Invoice Number</label>
-                <input class="builder-input" id="bldInvNum" type="text" value="5789412093" placeholder="e.g. 5789412093">
+                <label style="color:#b9c0cc;font-size:12px;">Issue Date / Fecha de emisión</label>
+                <input class="builder-input" id="bldIssueDate" type="text" value="November 30, 2026" style="background:#2d333b;border:1px solid #444c56;color:#f1f4f9;border-radius:4px;padding:8px 10px;">
               </div>
               <div class="builder-field">
-                <label>Billing Period</label>
-                <input class="builder-input" id="bldPeriod" type="text" value="Nov 1 – Nov 30, 2026" placeholder="e.g. Nov 1 – Nov 30, 2026">
+                <label style="color:#b9c0cc;font-size:12px;">Amount / Importe (USD $)</label>
+                <input class="builder-input" id="bldAmount" type="number" step="0.01" value="15.80" style="background:#2d333b;border:1px solid #444c56;color:#f1f4f9;border-radius:4px;padding:8px 10px;">
               </div>
               <div class="builder-field">
-                <label>Invoice Issue Date</label>
-                <input class="builder-input" id="bldIssueDate" type="text" value="Dec 2, 2026" placeholder="e.g. Dec 2, 2026">
+                <label style="color:#b9c0cc;font-size:12px;">Invoice Number</label>
+                <input class="builder-input" id="bldInvNum" type="text" value="5789412093" style="background:#2d333b;border:1px solid #444c56;color:#f1f4f9;border-radius:4px;padding:8px 10px;">
               </div>
               <div class="builder-field">
-                <label>Total Amount (USD $)</label>
-                <input class="builder-input" id="bldAmount" type="number" step="0.01" value="15.80" placeholder="15.80">
+                <label style="color:#b9c0cc;font-size:12px;">Document Type</label>
+                <input class="builder-input" id="bldDocType" type="text" value="Summary" style="background:#2d333b;border:1px solid #444c56;color:#f1f4f9;border-radius:4px;padding:8px 10px;">
               </div>
               <div class="builder-field">
-                <label>Customer Name / Billing Account</label>
-                <input class="builder-input" id="bldCustomer" type="text" value="Pago de Firebase" placeholder="Pago de Firebase">
+                <label style="color:#b9c0cc;font-size:12px;">Payment Card</label>
+                <input class="builder-input" id="bldCard" type="text" value="Visa •••• 6911" readonly style="background:#22272e;border:1px solid #444c56;color:#8ab4f8;border-radius:4px;padding:8px 10px;cursor:not-allowed;">
               </div>
               <div class="builder-field">
-                <label>Payment Method (Memorized Card)</label>
-                <input class="builder-input" id="bldCard" type="text" value="Visa •••• 6911 (ID: 9341-6911-2382)" readonly style="opacity:0.85;cursor:not-allowed;">
-              </div>
-              <div class="builder-field" style="grid-column: 1 / -1;">
-                <label>Services Description / Line Items</label>
-                <input class="builder-input" id="bldServices" type="text" value="Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Firestore, Artifact Registry, Vertex AI)">
+                <label style="color:#b9c0cc;font-size:12px;">Customer Name</label>
+                <input class="builder-input" id="bldCustomer" type="text" value="Pago de Firebase" style="background:#2d333b;border:1px solid #444c56;color:#f1f4f9;border-radius:4px;padding:8px 10px;">
               </div>
             </div>
 
-            <div class="builder-actions">
-              <button class="btn-create-inv" onclick="generateAndPreviewCustomInvoice()">
-                <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                <span>Generate & Preview Invoice</span>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:16px;">
+              <button onclick="generateAndPreviewCustomInvoice()" style="background:#839cff;color:#0b1d3a;font-weight:600;border:none;border-radius:4px;padding:8px 18px;font-size:13px;cursor:pointer;">
+                Generate & Preview Document
               </button>
-              <button class="pill-outlined-btn" onclick="addCustomInvoiceToTable()">
-                <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M15 8h-5V3H8v5H3v2h5v5h2v-5h5V8z"/></svg>
-                <span>Add to Invoices List</span>
+              <button onclick="addCustomInvoiceToTable()" style="background:transparent;border:1px solid #839cff;color:#839cff;border-radius:4px;padding:8px 16px;font-size:13px;cursor:pointer;">
+                + Add row to table
               </button>
-              <button class="pill-outlined-btn" onclick="resetInvoiceBuilder()">
-                <span>Reset Defaults</span>
+              <button onclick="toggleInvoiceBuilder()" style="background:transparent;border:none;color:#b9c0cc;font-size:13px;cursor:pointer;">
+                Close
               </button>
             </div>
           </div>
 
-          <!-- Summary KPI Cards -->
-          <div class="kpi-cards-summary-row">
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Open balance</span>
-              <span class="tx-kpi-value" style="color:var(--cm-sys-color-status-success);">$0.00</span>
-              <span class="tx-kpi-sub">All closed monthly invoices are fully paid</span>
+          <!-- White Card Container (Google Cloud Console Native) -->
+          <div class="invoices-white-card">
+            <!-- Card Toolbar -->
+            <div class="invoices-card-toolbar">
+              <div class="invoices-toolbar-left">
+                <button class="btn-add-filter">
+                  <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M15 8h-5V3H8v5H3v2h5v5h2v-5h5V8z"/></svg>
+                  <span>Add filter</span>
+                </button>
+                <button class="btn-custom-invoice-trigger" onclick="toggleInvoiceBuilder()">
+                  <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M2 13.5V16h2.5L12 8.5l-2.5-2.5L2 13.5zM14.7 5.8a.7.7 0 000-1l-1.5-1.5a.7.7 0 00-1 0L10.7 4.8l2.5 2.5 1.5-1.5z"/></svg>
+                  <span>Customize / Add values</span>
+                </button>
+              </div>
+              <a class="save-filter-link">Save custom filter</a>
             </div>
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Total invoiced to date</span>
-              <span class="tx-kpi-value">$38.28</span>
-              <span class="tx-kpi-sub">7 official tax invoices issued in 2026</span>
-            </div>
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Latest invoice (October 2026)</span>
-              <span class="tx-kpi-value" style="color:var(--cm-sys-color-primary-on-container);">$3.80</span>
-              <span class="tx-kpi-sub">Inv #5742111055 • Paid Nov 2, 2026</span>
-            </div>
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Active card on file</span>
-              <span class="tx-kpi-value" style="font-size:17px;font-weight:400;display:flex;align-items:center;gap:8px;">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="#839cff"><path d="M20 4H4c-1.1 0-1.99.89-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.89 2-2V6c0-1.1-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-                Visa •••• 6911
-              </span>
-              <span class="tx-kpi-sub">Profile: 9341-6911-2382 • Google Payment Corp.</span>
-            </div>
-          </div>
 
-          <!-- Invoices Table -->
-          <div class="tx-table-container">
-            <table class="tx-table">
+            <!-- Table -->
+            <table class="gcp-invoices-table">
               <thead>
                 <tr>
-                  <th>Invoice Number</th>
-                  <th>Statement Period</th>
-                  <th>Issue Date</th>
-                  <th>Payment Status</th>
-                  <th style="text-align:right;">Amount ($)</th>
-                  <th style="text-align:center;">Actions</th>
+                  <th style="width:40px;"><input type="checkbox" class="row-checkbox" id="selectAllInvoices" onclick="toggleAllInvoices(this)"></th>
+                  <th class="sortable">Issue date</th>
+                  <th>Document type</th>
+                  <th class="sortable">Amount</th>
+                  <th class="sortable" style="width:80px;">Edit</th>
                 </tr>
               </thead>
               <tbody id="invoicesTableBody">
-                <!-- October 2026 -->
+                <!-- 1. October 31, 2026 -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-10')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5742111055
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>October 31, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-10')">Summary</a>
                   </td>
-                  <td>Oct 1 – Oct 31, 2026</td>
-                  <td>Nov 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$3.80</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-10')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 3.80</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
 
-                <!-- September 2026 -->
+                <!-- 2. September 30, 2026 -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-09')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5711325158
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>September 30, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-09')">Summary</a>
                   </td>
-                  <td>Sep 1 – Sep 30, 2026</td>
-                  <td>Oct 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$3.62</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-09')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 3.62</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
 
-                <!-- August 2026 -->
+                <!-- 3. August 31, 2026 -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-08')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5685089576
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>August 31, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-08')">Summary</a>
                   </td>
-                  <td>Aug 1 – Aug 31, 2026</td>
-                  <td>Sep 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$6.32</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-08')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 6.32</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
 
-                <!-- July 2026 -->
+                <!-- 4. July 31, 2026 -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-07')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5655234025
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>July 31, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-07')">Summary</a>
                   </td>
-                  <td>Jul 1 – Jul 31, 2026</td>
-                  <td>Aug 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$5.11</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-07')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 5.11</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
 
-                <!-- June 2026 -->
+                <!-- 5. June 30, 2026 (USD 9.43) -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-06')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5626064420
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>June 30, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-06')">Summary</a>
                   </td>
-                  <td>Jun 1 – Jun 30, 2026</td>
-                  <td>Jul 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$9.39</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-06')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 9.43</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
 
-                <!-- May 2026 -->
+                <!-- 6. May 31, 2026 (USD 0.04) -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-05')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5598511715
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>May 31, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-05')">Summary</a>
                   </td>
-                  <td>May 1 – May 31, 2026</td>
-                  <td>Jun 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$8.74</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-05')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 0.04</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
 
-                <!-- April 2026 -->
+                <!-- 7. April 30, 2026 -->
                 <tr>
-                  <td style="font-weight:500;">
-                    <a href="javascript:void(0)" onclick="openReceipt('2026-04')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-                      5565692484
-                    </a>
+                  <td><input type="checkbox" class="row-checkbox"></td>
+                  <td>April 30, 2026</td>
+                  <td>
+                    <a class="doc-summary-link" onclick="openReceipt('2026-04')">Summary</a>
                   </td>
-                  <td>Apr 1 – Apr 30, 2026</td>
-                  <td>May 2, 2026</td>
-                  <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-                  <td style="text-align:right;font-weight:500;">$1.30</td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-04')">
-                      View invoice
-                    </button>
-                  </td>
+                  <td>USD 1.30</td>
+                  <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
                 </tr>
               </tbody>
             </table>
+
+            <!-- Pagination Footer -->
+            <div class="invoices-pagination">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span>Rows per page:</span>
+                <select class="pagination-select">
+                  <option selected>20</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select>
+                <span style="font-size:10px;margin-left:-2px;">▾</span>
+              </div>
+              <span id="invoicesPaginationCount">1 – 7 of 7</span>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span class="pagination-arrow" title="Previous page">‹</span>
+                <span class="pagination-arrow" title="Next page">›</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -3160,7 +3316,7 @@
                     <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Jun 1 – Jun 30, 2026 (Invoice 5626064420)</div>
                   </td>
                   <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$9.39</td>
+                  <td style="text-align:right;font-weight:500;">-$9.43</td>
                   <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
                   <td style="text-align:center;">
                     <button class="receipt-btn" onclick="openReceipt('2026-06')">
@@ -3178,7 +3334,7 @@
                     <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: May 1 – May 31, 2026 (Invoice 5598511715)</div>
                   </td>
                   <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$8.74</td>
+                  <td style="text-align:right;font-weight:500;">-$0.04</td>
                   <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
                   <td style="text-align:center;">
                     <button class="receipt-btn" onclick="openReceipt('2026-05')">
@@ -3721,6 +3877,11 @@
     };
 
 
+
+    function toggleAllInvoices(master) {
+      document.querySelectorAll('#invoicesTableBody .row-checkbox').forEach(cb => cb.checked = master.checked);
+    }
+
     function toggleInvoiceBuilder() {
       const panel = document.getElementById('invoiceBuilderPanel');
       const btnText = document.getElementById('btnToggleBuilderText');
@@ -3766,44 +3927,34 @@
 
     function addCustomInvoiceToTable() {
       const num = document.getElementById('bldInvNum').value || '5789412093';
-      const period = document.getElementById('bldPeriod').value || 'Nov 1 – Nov 30, 2026';
-      const payDate = document.getElementById('bldIssueDate').value || 'Dec 2, 2026';
+      const issueDate = document.getElementById('bldIssueDate').value || 'November 30, 2026';
+      const docType = document.getElementById('bldDocType').value || 'Summary';
       const amount = parseFloat(document.getElementById('bldAmount').value || 15.80).toFixed(2);
       const customer = document.getElementById('bldCustomer').value || 'Pago de Firebase';
-      const services = document.getElementById('bldServices').value || 'Google Cloud Platform - Crossbox';
 
       const customKey = 'custom-' + num;
       RECEIPTS_DB[customKey] = {
         num: num,
-        payDate: payDate,
-        period: period,
+        payDate: issueDate,
+        period: issueDate,
         method: "Visa •••• 6911",
         amount: amount,
         customer: customer,
-        servicesSummary: services
+        servicesSummary: "Google Cloud Platform - Crossbox (Custom Statement)"
       };
 
       const tbody = document.getElementById('invoicesTableBody');
       const newRow = document.createElement('tr');
-      newRow.style.backgroundColor = 'rgba(131, 156, 255, 0.08)';
+      newRow.style.backgroundColor = '#e8f0fe';
       newRow.innerHTML = `
-        <td style="font-weight:500;">
-          <a href="javascript:void(0)" onclick="openReceipt('${customKey}')" style="color:var(--cm-sys-color-primary);text-decoration:none;">
-            ${num}
-          </a>
-        </td>
-        <td>${period}</td>
-        <td>${payDate}</td>
-        <td><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid (Visa •••• 6911)</span></td>
-        <td style="text-align:right;font-weight:500;">$${amount}</td>
-        <td style="text-align:center;">
-          <button class="receipt-btn" onclick="openReceipt('${customKey}')">
-            View invoice
-          </button>
-        </td>
+        <td><input type="checkbox" class="row-checkbox" checked></td>
+        <td>${issueDate}</td>
+        <td><a class="doc-summary-link" onclick="openReceipt('${customKey}')">${docType}</a></td>
+        <td>USD ${amount}</td>
+        <td><a class="doc-summary-link" onclick="toggleInvoiceBuilder()">Edit</a></td>
       `;
       tbody.prepend(newRow);
-      alert('Custom invoice #' + num + ' added successfully to the Invoices list!');
+      alert('Custom invoice row added: ' + issueDate + ' | ' + docType + ' | USD ' + amount);
     }
 
     let activeReceiptKey = "2026-10";
