@@ -1155,13 +1155,15 @@
     }
 
     .meta-item-title {
-      font-weight: 600;
-      color: var(--cm-sys-color-on-surface);
+      font-weight: 400;
+      color: var(--cm-sys-color-on-surface-variant);
+      font-size: 13px;
     }
 
     .meta-item-val {
-      color: var(--cm-sys-color-on-surface-variant);
-      font-weight: 400;
+      color: var(--cm-sys-color-on-surface);
+      font-weight: 500;
+      font-size: 14px;
     }
 
     .treegrid-toolbar {
@@ -1180,22 +1182,24 @@
     .treegrid-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 12.5px;
+      font-size: 13px;
     }
 
     .treegrid-table th {
-      background-color: #3f4756;
+      background-color: var(--cm-sys-color-surface);
       color: var(--cm-sys-color-on-surface);
-      font-weight: 600;
+      font-weight: 500;
       padding: 8px 12px;
       text-align: left;
       border-bottom: 1px solid var(--cm-sys-color-hairline);
+      font-size: 13px;
     }
 
     .treegrid-table td {
       padding: 8px 12px;
-      border-bottom: 1px solid #454e5e;
+      border-bottom: 1px solid #3c444e;
       color: var(--cm-sys-color-on-surface);
+      font-size: 13px;
     }
 
     .treegrid-table tr:hover td {
@@ -1464,13 +1468,6 @@
 
         <!-- Cost management -->
         <div class="nav-group-header">Cost management</div>
-        <a class="nav-item" id="nav-spend-report" onclick="switchSection('spend-report')">
-          <div class="nav-item-left">
-            <svg viewBox="0 0 18 18"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-            <span>Project spend report</span>
-          </div>
-          <span class="status-chip-paid" style="font-size:10.5px;">$45.90</span>
-        </a>
         <a class="nav-item" id="nav-reports" onclick="switchSection('reports')">
           <div class="nav-item-left">
             <svg viewBox="0 0 18 18"><path d="M2 10h3v6H2v-6zm5-6h3v12H7V4zm5 8h3v4h-3v-4z"/></svg>
@@ -1649,60 +1646,13 @@
           </button>
         </div>
 
-        <!-- Tabs: Cost summary | Project spend report ($45.90) | Your payment method -->
+        <!-- Tabs: Cost summary | Your payment method -->
         <div class="surface-tabs-bar" role="tablist">
           <div class="surface-tab active" role="tab" onclick="switchSection('overview')">Cost summary</div>
-          <div class="surface-tab" role="tab" onclick="switchSection('spend-report')">
-            <span>Project spend report</span>
-            <span class="status-chip-paid">$45.90 total</span>
-          </div>
           <div class="surface-tab" role="tab" onclick="alert('You currently pay 1 way (Pago de Firebase - Billing ID: 9341-6911-2382).')">Your payment method</div>
         </div>
 
         <div class="surface-body-content">
-
-          <!-- ================================================================
-               CONSOLIDATED PROJECT SPEND SUMMARY BANNER (Crossbox All-Time)
-               ================================================================ -->
-          <div class="spend-report-card">
-            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span class="badge-preview" style="background:#6eebbf;color:#102a24;font-weight:600;">LIVE AUDIT REPORT</span>
-                <h3 class="card-h3" style="font-weight:500;">Crossbox Project Total Spend Summary (Apr 3 – Nov 24, 2026)</h3>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <button class="pill-outlined-btn" onclick="switchSection('spend-report')">
-                  <span>View full monthly & service breakdown</span>
-                </button>
-                <button class="btn-filled-primary" onclick="downloadCurrentInvoiceCSV()">
-                  <span>Export CSV Report</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="spend-kpi-grid">
-              <div class="spend-kpi-box primary-highlight">
-                <span class="spend-kpi-label">Total Net Spend (All-Time)</span>
-                <span class="spend-kpi-val" style="color:var(--cm-sys-color-status-success);">$45.90</span>
-                <span class="spend-kpi-sub">Apr 3 – Nov 24, 2026 (USD)</span>
-              </div>
-              <div class="spend-kpi-box">
-                <span class="spend-kpi-label">Invoiced & Billed (7 Months)</span>
-                <span class="spend-kpi-val">$38.28</span>
-                <span class="spend-kpi-sub">Apr – Oct 2026 (7 official invoices)</span>
-              </div>
-              <div class="spend-kpi-box">
-                <span class="spend-kpi-label">Current Month Net (Nov 1–24)</span>
-                <span class="spend-kpi-val">$7.62</span>
-                <span class="spend-kpi-sub">$14.12 gross − $6.50 savings</span>
-              </div>
-              <div class="spend-kpi-box">
-                <span class="spend-kpi-label">Projected Total (Thru Nov 30)</span>
-                <span class="spend-kpi-val" style="color:var(--cm-sys-color-primary-on-container);">$48.07</span>
-                <span class="spend-kpi-sub">$38.28 invoiced + $9.79 Nov forecast</span>
-              </div>
-            </div>
-          </div>
 
           <!-- Banner 1: Gemini Cost Estimation -->
           <div class="cfc-message-banner" id="geminiBanner">
@@ -1745,11 +1695,11 @@
             </button>
           </div>
 
-          <!-- Card 1: Your total cost (Nov 1–24, 2026) -->
+          <!-- Card 1: Your total cost (Nov 1–25, 2026) -->
           <div class="cm-outlined-card">
             <div class="card-header-row">
               <div class="card-title-group">
-                <h3 class="card-h3" id="overviewPeriodHeading">Your total cost (Nov 1–24, 2026)</h3>
+                <h3 class="card-h3" id="overviewPeriodHeading">Your total cost (Nov 1–25, 2026)</h3>
                 <button class="help-icon-btn" title="Help">
                   <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor">
                     <path d="M8.25 13.5h1.5V12h-1.5zM9 1.5C4.86 1.5 1.5 4.86 1.5 9s3.36 7.5 7.5 7.5 7.5-3.36 7.5-7.5S13.14 1.5 9 1.5M9 15c-3.308 0-6-2.693-6-6s2.692-6 6-6 6 2.692 6 6-2.693 6-6 6M9 4.5a3 3 0 00-3 3h1.5C7.5 6.675 8.175 6 9 6s1.5.675 1.5 1.5c0 1.5-2.25 1.313-2.25 3.75h1.5C9.75 9.562 12 9.375 12 7.5a3 3 0 00-3-3"></path>
@@ -1762,36 +1712,39 @@
               </div>
             </div>
 
-            <!-- Equation: Cost $14.12 — Savings $6.50 = Total cost $7.62 -->
+            <!-- Equation: Cost $14.41 — Savings $6.52 = Total cost $7.89 -->
             <div class="kpi-equation-grid">
               <div class="kpi-block">
                 <span class="kpi-label">Cost</span>
-                <span class="kpi-value" id="kpiGross">$14.12</span>
+                <span class="kpi-value" id="kpiGross">$14.41</span>
               </div>
               <div class="kpi-operator">—</div>
               <div class="kpi-block">
                 <span class="kpi-label">Savings</span>
-                <span class="kpi-value" id="kpiSavings">$6.50</span>
+                <span class="kpi-value" id="kpiSavings">$6.52</span>
                 <a class="kpi-sublink" onclick="switchSection('reports')">View details</a>
               </div>
               <div class="kpi-operator">=</div>
               <div class="kpi-block">
                 <span class="kpi-label">Total cost</span>
-                <span class="kpi-value" id="kpiNet">$7.62</span>
+                <span class="kpi-value" id="kpiNet">$7.89</span>
               </div>
             </div>
 
             <div class="hairline-divider"></div>
 
-            <!-- Forecast Block: Forecasted total cost $9.79 (↑ 158% vs. October) -->
+            <!-- Forecast Block: Forecasted total cost $11.21 (↑ 195% versus October) -->
             <div class="forecast-center-block">
+              <div style="text-align:center;margin-bottom:8px;">
+                <span style="background:#20242a;border:1px solid #50638b;color:#f1f4f9;padding:4px 12px;border-radius:4px;font-size:12px;display:inline-block;cursor:pointer;" onclick="switchSection('reports')">View details in Reports</span>
+              </div>
               <span class="kpi-label">Forecasted total cost</span>
-              <span class="kpi-value" style="margin-top: 4px;">$9.79</span>
-              <div class="forecast-change">
+              <span class="kpi-value" style="margin-top: 4px;">$11.21</span>
+              <div class="forecast-change" style="color:var(--cm-sys-color-status-error);">
                 <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor" style="flex-shrink:0;">
                   <path d="M13.625 9.775L15 8.4l-6-6-6 6 1.375 1.375L8 6.15V16h2V6.15z" fill-rule="evenodd"></path>
                 </svg>
-                <span>158% vs. October</span>
+                <span>195% versus October</span>
               </div>
             </div>
 
@@ -1828,7 +1781,7 @@
               <div class="ai-subcard">
                 <span class="ai-subcard-title">Total AI cost</span>
                 <span class="ai-subcard-val">$0.03</span>
-                <span class="ai-subcard-date">From November 1 - 24, 2026</span>
+                <span class="ai-subcard-date">From November 1 - 25, 2026</span>
               </div>
               <div class="ai-subcard">
                 <span class="ai-subcard-title">AI cost trend</span>
@@ -1838,7 +1791,7 @@
                   </svg>
                   <span>62%</span>
                 </span>
-                <span class="ai-subcard-date">From October 8 - 31, 2026</span>
+                <span class="ai-subcard-date">From October 7 - 31, 2026</span>
               </div>
             </div>
 
@@ -2226,7 +2179,6 @@
                   <th style="width: 32px;"><input type="checkbox"></th>
                   <th>Project › Service › SKU › Consumption model</th>
                   <th>Billing account name</th>
-                  <th>Project ID</th>
                   <th style="text-align: right;">↓ Cost ($)</th>
                 </tr>
               </thead>
@@ -2498,7 +2450,7 @@
       const dailyHeights = [
         0.02, 0.02, 0.03, 0.11, 0.10, 0.12, 0.14, 0.22,
         0.15, 0.14, 0.12, 0.14, 0.13, 0.42, 0.40, 0.47,
-        0.58, 0.55, 0.56, 0.51, 0.96, 1.00, 0.52, 0.24
+        0.58, 0.55, 0.56, 0.51, 0.96, 1.00, 0.52, 0.24, 0.05
       ];
       const yZero = 165;
       const pxPerDollar = 140 / 1.5;
@@ -2516,9 +2468,9 @@
         html += `<line x1="38" y1="${y}" x2="865" y2="${y}" stroke="${t.val === 0 ? '#8e97a4' : '#464e5c'}" stroke-width="1"/>`;
       });
 
-      const startX = 48;
-      const stepX = 34.5;
-      const barWidth = 22;
+      const startX = 46;
+      const stepX = 33;
+      const barWidth = 20;
 
       dailyHeights.forEach((val, idx) => {
         const day = idx + 1;
@@ -2526,20 +2478,24 @@
         const h = Math.max(2, val * pxPerDollar);
         const y = yZero - h;
 
-        if (day === 24) {
-          const fh = 0.51 * pxPerDollar;
+        if (day >= 23) {
+          const forecastVals = { 23: 0.70, 24: 0.65, 25: 0.60 };
+          const fh = forecastVals[day] * pxPerDollar;
           const fy = yZero - fh;
           html += `<rect x="${x}" y="${fy}" width="${barWidth}" height="${fh}" fill="rgba(66, 133, 244, 0.28)" stroke="#4285f4" stroke-width="0.6"/>`;
+          if (day === 25) {
+            html += `<circle cx="${x + barWidth / 2}" cy="${fy}" r="3.2" fill="#282c32" stroke="#4285f4" stroke-width="1.8"/>`;
+          }
         }
 
         html += `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" fill="#4285f4"/>`;
 
-        if (day >= 4) {
+        if (day >= 4 && day < 25) {
           const cy = yZero - (h * 0.52);
           html += `<circle cx="${x + barWidth / 2}" cy="${cy}" r="3.2" fill="#4285f4" stroke="#1e2430" stroke-width="1.3"/>`;
         }
 
-        const showLabel = (day <= 10) || (day >= 12 && day % 2 === 0);
+        const showLabel = (day % 2 === 1);
         if (showLabel) {
           html += `<line x1="${x + barWidth / 2}" y1="${yZero}" x2="${x + barWidth / 2}" y2="${yZero + 5}" stroke="#8e97a4"/>`;
           html += `<text x="${x + barWidth / 2}" y="${yZero + 17}" fill="#b9c0cc" font-size="10.5" text-anchor="middle">Nov ${day}</text>`;
@@ -2776,7 +2732,7 @@
       const inv = INVOICES_DB[currentSelectedMonth];
       const tbody = document.getElementById('tabularTreeBody');
       if (!inv || inv.services.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#9ca6b2;padding:24px;">No billed charges for this period (usage started on 2026-04-03).</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#9ca6b2;padding:24px;">No billed charges for this period (usage started on 2026-04-03).</td></tr>`;
         return;
       }
 
@@ -2785,7 +2741,6 @@
           <td><input type="checkbox"></td>
           <td><span style="display:inline-block;width:18px;">${isTreeExpanded ? '▾' : '▸'}</span> Crossbox</td>
           <td>Pago de Firebase</td>
-          <td>crossbox-668a3</td>
           <td style="text-align: right;">${inv.total}</td>
         </tr>
       `;
@@ -2797,7 +2752,6 @@
               <td><input type="checkbox"></td>
               <td style="padding-left: 34px;"><span style="display:inline-block;width:16px;color:#9ca6b2;">▸</span> ${s.name}</td>
               <td>Pago de Firebase</td>
-              <td>crossbox-668a3 (${s.id})</td>
               <td style="text-align: right;">${s.cost}</td>
             </tr>
           `;
@@ -2837,15 +2791,15 @@
       document.getElementById('seg7d').classList.toggle('active', mode === '7d');
       document.getElementById('segMonth').classList.toggle('active', mode === 'month');
       if (mode === '7d') {
-        document.getElementById('overviewPeriodHeading').innerText = 'Your total cost (Nov 18–24, 2026)';
-        document.getElementById('kpiGross').innerText = '$4.34';
-        document.getElementById('kpiSavings').innerText = '$1.85';
-        document.getElementById('kpiNet').innerText = '$2.49';
+        document.getElementById('overviewPeriodHeading').innerText = 'Your total cost (Nov 19–25, 2026)';
+        document.getElementById('kpiGross').innerText = '$4.42';
+        document.getElementById('kpiSavings').innerText = '$1.88';
+        document.getElementById('kpiNet').innerText = '$2.54';
       } else {
-        document.getElementById('overviewPeriodHeading').innerText = 'Your total cost (Nov 1–24, 2026)';
-        document.getElementById('kpiGross').innerText = '$14.12';
-        document.getElementById('kpiSavings').innerText = '$6.50';
-        document.getElementById('kpiNet').innerText = '$7.62';
+        document.getElementById('overviewPeriodHeading').innerText = 'Your total cost (Nov 1–25, 2026)';
+        document.getElementById('kpiGross').innerText = '$14.41';
+        document.getElementById('kpiSavings').innerText = '$6.52';
+        document.getElementById('kpiNet').innerText = '$7.89';
       }
     }
 
