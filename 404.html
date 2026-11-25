@@ -2011,6 +2011,254 @@
       font-weight: 400;
     }
 
+
+    /* ==========================================================================
+       EXACT GOOGLE PAYMENTS OFFICIAL RECEIPT MODAL (Pixel-Matching Image 1)
+       Origin: doc-14-c4-payments.googleusercontent.com
+       ========================================================================== */
+    .receipt-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .receipt-modal-backdrop.active {
+      display: flex;
+    }
+
+    .google-doc-viewer-window {
+      background: #202124;
+      border-radius: 8px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+      width: 100%;
+      max-width: 900px;
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #3c4043;
+    }
+
+    /* Browser Bar */
+    .doc-viewer-browser-bar {
+      background: #1f1f1f;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #3c4043;
+      user-select: none;
+    }
+
+    .doc-viewer-nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #9aa0a6;
+    }
+
+    .doc-viewer-nav-icon {
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .doc-viewer-nav-icon:hover {
+      background: #3c4043;
+      color: #fff;
+    }
+
+    .doc-viewer-url-box {
+      flex: 1;
+      max-width: 620px;
+      margin: 0 14px;
+      background: #2d2e30;
+      border-radius: 18px;
+      padding: 5px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #e8eaed;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .doc-viewer-url-text {
+      color: #9aa0a6;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .doc-viewer-url-text strong {
+      color: #e8eaed;
+      font-weight: 500;
+    }
+
+    .doc-viewer-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #9aa0a6;
+    }
+
+    .doc-viewer-btn {
+      background: transparent;
+      border: none;
+      color: #9aa0a6;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .doc-viewer-btn:hover {
+      background: #3c4043;
+      color: #ffffff;
+    }
+
+    /* Document Sheet (Pure White A4 Canvas) */
+    .google-receipt-sheet-scroll {
+      background: #525659;
+      padding: 24px 16px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .google-receipt-sheet {
+      background: #ffffff;
+      color: #202124;
+      width: 100%;
+      max-width: 760px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      padding: 48px 56px 64px 56px;
+      font-family: 'Roboto', 'Google Sans', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    .exact-google-logo {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    .exact-receipt-title {
+      font-size: 20px;
+      font-weight: 400;
+      color: #202124;
+      margin-top: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .exact-amount-section {
+      margin-top: 48px;
+      margin-bottom: 52px;
+    }
+
+    .exact-amount-label {
+      font-size: 24px;
+      font-weight: 400;
+      color: #202124;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .exact-amount-value {
+      font-size: 46px;
+      font-weight: 700;
+      color: #202124;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    .exact-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 36px;
+      margin-top: 40px;
+      border-top: 1px solid #ffffff;
+    }
+
+    .exact-col-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 22px;
+    }
+
+    .exact-field-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #202124;
+    }
+
+    .exact-field-value {
+      font-size: 13px;
+      font-weight: 400;
+      color: #3c4043;
+      line-height: 1.45;
+    }
+
+    .exact-field-value strong {
+      color: #202124;
+      font-weight: 500;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      .receipt-modal-backdrop, .receipt-modal-backdrop * {
+        visibility: visible !important;
+      }
+      .receipt-modal-backdrop {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .google-doc-viewer-window {
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+      }
+      .doc-viewer-browser-bar {
+        display: none !important;
+      }
+      .google-receipt-sheet-scroll {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .google-receipt-sheet {
+        box-shadow: none !important;
+        padding: 24px 32px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3384,10 +3632,10 @@
                 <tr>
                   <td>Nov 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-10')">
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 nov 2026', '248.80', 'A9654842096352174', 'CLOUD 41601509666548985633')">
                       Monthly charge: American Express •••• 1989.
                     </a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-10')">
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 nov 2026', '248.80', 'A9654842096352174', 'CLOUD 41601509666548985633')">
                       41601509666548985633-CLOUD
                     </div>
                   </td>
@@ -3430,10 +3678,10 @@
                 <tr>
                   <td>Oct 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-09')">
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 oct 2026', '214.20', 'A9654842096352173', 'CLOUD XJQz2J')">
                       Monthly charge: American Express •••• 1989.
                     </a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-09')">
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 oct 2026', '214.20', 'A9654842096352173', 'CLOUD XJQz2J')">
                       41601509666548984920-CLOUD
                     </div>
                   </td>
@@ -3476,10 +3724,10 @@
                 <tr>
                   <td>Sep 1, 2026</td>
                   <td>
-                    <a class="tx-desc-link" onclick="openReceipt('2026-08')">
+                    <a class="tx-desc-link" onclick="openExactReceipt('1 sep 2026', '188.50', 'A9654842096352172', 'CLOUD 41601509666548983811')">
                       Monthly charge: American Express •••• 1989.
                     </a>
-                    <div class="tx-desc-subid" onclick="openReceipt('2026-08')">
+                    <div class="tx-desc-subid" onclick="openExactReceipt('1 sep 2026', '188.50', 'A9654842096352172', 'CLOUD 41601509666548983811')">
                       41601509666548983811-CLOUD
                     </div>
                   </td>
@@ -3560,48 +3808,127 @@
       <!-- ====================================================================
            OFFICIAL GOOGLE CLOUD RECEIPT MODAL VIEWER
            ==================================================================== -->
+      <!-- ====================================================================
+           EXACT OFFICIAL GOOGLE PAYMENTS RECEIPT VIEWER (Matching Image 1)
+           ==================================================================== -->
       <div class="receipt-modal-backdrop" id="receiptModal" onclick="if(event.target===this) closeReceiptModal()">
-        <div class="receipt-card" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
-          <!-- Header -->
-          <div class="receipt-header">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <svg viewBox="0 0 24 24" width="28" height="28">
-                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.35 24 12 24z"/>
-                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.04 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-              </svg>
-              <div>
-                <h3 id="receiptModalTitle" style="font-size:16px;font-weight:600;margin:0;color:#202124;">Payment Receipt / Comprobante de pago</h3>
-                <span style="font-size:12px;color:#5f6368;">Google Payment Corp. • Official Record</span>
+        <div class="google-doc-viewer-window" role="dialog" aria-modal="true">
+          <!-- Top Browser / Document Header Bar -->
+          <div class="doc-viewer-browser-bar">
+            <div class="doc-viewer-nav-icons">
+              <span class="doc-viewer-nav-icon" title="Atrás">←</span>
+              <span class="doc-viewer-nav-icon" title="Adelante">→</span>
+              <span class="doc-viewer-nav-icon" title="Recargar">↻</span>
+            </div>
+
+            <div class="doc-viewer-url-box">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#9aa0a6"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+              <div class="doc-viewer-url-text">
+                doc-14-c4-payments.googleusercontent.com/efe/doc/fa/<span id="rcptUrlHash">krev4i1280oe4mbe9fi6...</span>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <button class="no-print" onclick="window.print()" style="background:#1a73e8;color:#fff;border:none;border-radius:4px;padding:6px 14px;font-size:12.5px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
-                <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 6V2H4v4H2v7h3v3h8v-3h3V6h-2zm-8-2h6v2H6V4zm6 10H6v-3h6v3zm2-4.5c-.4 0-.7-.3-.7-.7s.3-.7.7-.7.7.3.7.7-.3.7-.7.7z"/></svg>
-                Print / Save PDF
+
+            <div class="doc-viewer-actions">
+              <button class="doc-viewer-btn" title="Descargar comprobante" onclick="downloadCurrentExactReceiptCSV()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
               </button>
-              <button class="no-print" onclick="closeReceiptModal()" style="background:transparent;border:none;font-size:20px;cursor:pointer;color:#5f6368;padding:4px 8px;">✕</button>
+              <button class="doc-viewer-btn" title="Imprimir / Guardar en PDF" onclick="window.print()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+              </button>
+              <button class="doc-viewer-btn" title="Cerrar" onclick="closeReceiptModal()" style="font-size:18px;margin-left:4px;">
+                ✕
+              </button>
             </div>
           </div>
 
-          <!-- Body -->
-          <div class="receipt-body">
-            <div class="receipt-meta-grid">
-              <div>
-                <strong style="color:#5f6368;font-size:11.5px;text-transform:uppercase;letter-spacing:0.5px;">Paid to / Emisor:</strong>
-                <div style="font-weight:600;color:#202124;margin-top:2px;">Google LLC</div>
-                <div style="color:#5f6368;">1600 Amphitheatre Parkway<br>Mountain View, CA 94043, USA</div>
-                <div style="color:#5f6368;margin-top:4px;">Tax ID: US-942858858</div>
+          <!-- Document Sheet Container -->
+          <div class="google-receipt-sheet-scroll">
+            <div class="google-receipt-sheet">
+              <!-- Google Multicolored Logo -->
+              <svg class="exact-google-logo" viewBox="0 0 272 92" width="109" height="36">
+                <!-- G -->
+                <path fill="#4285F4" d="M115.75 47.18c0 3.02-.25 6.07-.77 9.02H60.27v-17.1h31.64c-1.37 7.42-5.59 13.7-11.89 17.92v14.9h19.26c11.27-10.38 17.75-25.67 17.75-43.74z" transform="matrix(.47 0 0 .47 -2.4 8.7)"/>
+                <path fill="#34A853" d="M60.27 103.5c16.14 0 29.7-5.35 39.6-14.5l-19.26-14.9c-5.36 3.6-12.22 5.72-20.34 5.72-15.63 0-28.87-10.56-33.6-24.77H6.71v15.42c9.87 19.59 30.17 33.03 53.56 33.03z" transform="matrix(.47 0 0 .47 -2.4 8.7)"/>
+                <path fill="#FBBC05" d="M26.67 55.05c-1.25-3.7-1.96-7.65-1.96-11.75s.71-8.05 1.96-11.75V16.13H6.71C2.44 24.64 0 34.22 0 44.3s2.44 19.66 6.71 28.17l19.96-15.42z" transform="matrix(.47 0 0 .47 -2.4 8.7)"/>
+                <path fill="#EA4335" d="M60.27 18.06c8.78 0 16.66 3.02 22.86 9l17.15-17.15C89.92 3.77 76.36 0 60.27 0 36.88 0 16.58 13.44 6.71 33.03l19.96 15.42c4.73-14.21 17.97-24.77 33.6-24.77z" transform="matrix(.47 0 0 .47 -2.4 8.7)"/>
+                <!-- o o g l e -->
+                <path fill="#EA4335" d="M64.7 34.5c0-10.7-8.5-18.7-18.7-18.7S27.3 23.8 27.3 34.5s8.5 18.7 18.7 18.7 18.7-8 18.7-18.7zm-8.2 0c0 6.6-4.7 11.2-10.5 11.2S35.5 41.1 35.5 34.5s4.7-11.2 10.5-11.2 10.5 4.6 10.5 11.2z"/>
+                <path fill="#FBBC05" d="M104.7 34.5c0-10.7-8.5-18.7-18.7-18.7s-18.7 8-18.7 18.7 8.5 18.7 18.7 18.7 18.7-8 18.7-18.7zm-8.2 0c0 6.6-4.7 11.2-10.5 11.2s-10.5-4.6-10.5-11.2 4.7-11.2 10.5-11.2 10.5 4.6 10.5 11.2z"/>
+                <path fill="#4285F4" d="M143.5 16.8h-7.8v3.2c-2.4-2.8-6.6-4.2-10.8-4.2-9.7 0-18 8.4-18 18.7 0 10.2 8.3 18.7 18 18.7 4.2 0 8.4-1.4 10.8-4.3v2.7c0 7.1-3.8 11-9.9 11-5 0-8.1-3.6-9.4-6.6l-7.1 3c2.1 5 7.6 11.1 16.5 11.1 9.6 0 17.7-5.6 17.7-19.5V16.8zm-8 18c0 6.4-4.3 11-10.1 11s-10.1-4.7-10.1-11c0-6.4 4.3-11.1 10.1-11.1 5.8 0 10.1 4.7 10.1 11.1z"/>
+                <path fill="#34A853" d="M154.5 3.5h8.2v49.7h-8.2z"/>
+                <path fill="#EA4335" d="M187.7 41.1l6.5 4.3c-2.1 3.1-7.2 8.8-15.9 8.8-10.9 0-18.8-8.5-18.8-18.7 0-11.1 8-18.7 17.8-18.7 9.9 0 14.8 7.7 16.4 11.9l.9 2.2-25.1 10.4c1.9 3.8 4.9 5.8 9.2 5.8 4.3 0 7.2-2.1 9-6zm-19.8-7.3l16.8-7c-.9-2.3-3.7-3.9-6.7-3.9-4.2 0-9.8 3.6-10.1 10.9z"/>
+              </svg>
+
+              <!-- Recibo de pago title -->
+              <div class="exact-receipt-title">Recibo de pago</div>
+
+              <!-- Main Hero Amount Section -->
+              <div class="exact-amount-section">
+                <div class="exact-amount-label" id="exactRcptHeroDate">Importe recibido el 1 nov 2026</div>
+                <div class="exact-amount-value" id="exactRcptHeroAmount">USD 248.80</div>
               </div>
-              <div>
-                <strong style="color:#5f6368;font-size:11.5px;text-transform:uppercase;letter-spacing:0.5px;">Billed to / Cliente:</strong>
-                <div style="font-weight:600;color:#202124;margin-top:2px;" id="rcptCustomerName">Pago de Firebase</div>
-                <div style="color:#5f6368;">Billing ID: <strong id="rcptBillingId">9341-6911-2382</strong></div>
-                <div style="color:#5f6368;">Account ID: 0131E5-07A0B1-7EF13B</div>
-                <div style="color:#5f6368;">Project: crossbox-668a3 (Crossbox)</div>
+
+              <!-- 3-Column Grid matching Image 1 -->
+              <div class="exact-details-grid">
+                <!-- Column 1 -->
+                <div>
+                  <div class="exact-col-item">
+                    <span class="exact-field-label">Número de pago</span>
+                    <span class="exact-field-value" id="exactRcptPayNumber">A9654842096352174</span>
+                  </div>
+                  <div class="exact-col-item">
+                    <span class="exact-field-label">ID de pago</span>
+                    <span class="exact-field-value" id="exactRcptPayId">CLOUD XJQz2J</span>
+                  </div>
+                  <div class="exact-col-item">
+                    <span class="exact-field-label">Descripción</span>
+                    <span class="exact-field-value">Google Cloud</span>
+                  </div>
+                  <div class="exact-col-item">
+                    <span class="exact-field-label">Forma de pago</span>
+                    <span class="exact-field-value" id="exactRcptMethod">American Express •••• 1989</span>
+                  </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                  <div class="exact-col-item">
+                    <span class="exact-field-label">Pagado por</span>
+                    <span class="exact-field-value" style="line-height:1.45;">
+                      <strong>LUIS FERNANDO ARMAS FUERTES</strong><br>
+                      Universidad de las Fuerzas Armadas Espe<br>
+                      Bloque B<br>
+                      171103 Quito<br>
+                      Ecuador
+                    </span>
+                  </div>
+                  <div class="exact-col-item" style="margin-top:10px;">
+                    <span class="exact-field-label">ID de facturación</span>
+                    <span class="exact-field-value">9341-6911-2382</span>
+                  </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                  <div class="exact-col-item">
+                    <span class="exact-field-label">Pagado a</span>
+                    <span class="exact-field-value" style="line-height:1.45;">
+                      Google LLC<br>
+                      1600 Amphitheatre Pkwy<br>
+                      Mountain View, CA 94043<br>
+                      United States
+                    </span>
+                  </div>
+                  <div class="exact-col-item" style="margin-top:10px;">
+                    <span class="exact-field-label">Número de identificación fiscal</span>
+                    <span class="exact-field-value">77-0493581</span>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
             <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;background:#f1f3f4;border-radius:6px;padding:12px 16px;font-size:12.5px;">
               <div>
@@ -4207,34 +4534,57 @@
 
     let activeReceiptKey = "2026-10";
 
-    function openReceipt(monthKey) {
-      activeReceiptKey = monthKey;
-      const r = RECEIPTS_DB[monthKey] || RECEIPTS_DB["2026-10"];
-      document.getElementById('rcptNum').innerText = r.num + '-REC';
-      document.getElementById('rcptDate').innerText = r.payDate;
-      document.getElementById('rcptMethod').innerText = r.method;
-      document.getElementById('rcptFooterId').innerText = r.num;
-      document.getElementById('rcptTotalBottom').innerText = '$' + r.amount + ' USD';
-      if (r.customer) {
-        document.getElementById('rcptCustomerName').innerText = r.customer;
-      } else {
-        document.getElementById('rcptCustomerName').innerText = 'Pago de Firebase';
-      }
+    let currentExactReceipt = {
+      payDate: '1 nov 2026',
+      amount: '248.80',
+      payNum: 'A9654842096352174',
+      payId: 'CLOUD XJQz2J',
+      method: 'American Express •••• 1989'
+    };
 
-      const tbody = document.getElementById('receiptTableItems');
-      tbody.innerHTML = `
-        <tr>
-          <td>
-            <strong>${r.servicesSummary}</strong><br>
-            <span style="font-size:11.5px;color:#5f6368;">Invoice #${r.num} • Statement auto-settlement</span>
-          </td>
-          <td style="color:#5f6368;">${r.period}</td>
-          <td style="text-align:right;">$${r.amount}</td>
-          <td style="text-align:right;color:#5f6368;">$0.00</td>
-          <td style="text-align:right;font-weight:600;">$${r.amount}</td>
-        </tr>
-      `;
+    function openExactReceipt(payDate, amount, payNum, payId) {
+      currentExactReceipt.payDate = payDate || '1 nov 2026';
+      currentExactReceipt.amount = amount || '248.80';
+      currentExactReceipt.payNum = payNum || 'A9654842096352174';
+      currentExactReceipt.payId = payId || 'CLOUD XJQz2J';
+
+      document.getElementById('exactRcptHeroDate').innerText = 'Importe recibido el ' + currentExactReceipt.payDate;
+      document.getElementById('exactRcptHeroAmount').innerText = 'USD ' + currentExactReceipt.amount;
+      document.getElementById('exactRcptPayNumber').innerText = currentExactReceipt.payNum;
+      document.getElementById('exactRcptPayId').innerText = currentExactReceipt.payId;
+      document.getElementById('rcptUrlHash').innerText = 'krev' + Math.floor(Math.random()*899999+100000) + 'oe4mbe9fi6...';
+
       document.getElementById('receiptModal').classList.add('active');
+    }
+
+    function openReceipt(monthKey) {
+      const r = RECEIPTS_DB[monthKey] || RECEIPTS_DB["2026-10"];
+      const dateMap = {
+        '2026-10': '1 nov 2026',
+        '2026-09': '1 oct 2026',
+        '2026-08': '1 sep 2026',
+        '2026-07': '1 ago 2026',
+        '2026-06': '1 jul 2026',
+        '2026-05': '1 jun 2026',
+        '2026-04': '1 may 2026'
+      };
+      const pDate = dateMap[monthKey] || r.payDate || '1 nov 2026';
+      openExactReceipt(pDate, r.amount, 'A9654842096352' + Math.floor(Math.random()*899+100), 'CLOUD ' + (r.num || 'XJQz2J'));
+    }
+
+    function downloadCurrentExactReceiptCSV() {
+      let csv = "Document,Payment Number,Payment ID,Date Received,Amount (USD),Paid By,Paid To,Tax ID,Billing Profile ID,Payment Method
+";
+      csv += `"Recibo de pago","${currentExactReceipt.payNum}","${currentExactReceipt.payId}","${currentExactReceipt.payDate}","${currentExactReceipt.amount}","LUIS FERNANDO ARMAS FUERTES - Universidad de las Fuerzas Armadas Espe","Google LLC - 1600 Amphitheatre Pkwy, Mountain View, CA 94043","77-0493581","9341-6911-2382","American Express •••• 1989"
+`;
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Recibo_Pago_GoogleCloud_${currentExactReceipt.payNum}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     function closeReceiptModal() {
