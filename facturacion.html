@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossbox – Billing – Google Cloud Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cm-sys-color-backdrop: #282c32;
+      --cm-sys-color-surface: #353b43;
+      --cm-sys-color-surface-variant: #3c444e;
+      --cm-sys-color-primary: #839cff;
+      --cm-sys-color-on-primary: #1b2e5d;
+      --cm-sys-color-primary-on-container: #a8baff;
+      --cm-sys-color-on-surface: #f1f4f9;
+      --cm-sys-color-on-surface-variant: #b9c0cc;
+      --cm-sys-color-backdrop-inset: #4c4f5c;
+      --cm-sys-color-outline: #b7c2e8;
+      --cm-sys-color-hairline: #50638b;
+      --font-ui: "Google Sans Flex", "Google Sans", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background-color: var(--cm-sys-color-backdrop);
+      color: var(--cm-sys-color-on-surface);
+      font-family: var(--font-ui);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header.platform-bar {
+      height: 49px;
+      background-color: var(--cm-sys-color-backdrop);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px 0 8px;
+      flex-shrink: 0;
+    }
+
+    .platform-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--cm-sys-color-on-surface-variant);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .icon-btn:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .gcp-wordmark-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 6px;
+      text-decoration: none;
+    }
+
+    .gcp-wordmark-link img {
+      height: 22px;
+      width: auto;
+    }
+
+    .project-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 9999px;
+      border: 1px solid var(--cm-sys-color-outline);
+      color: var(--cm-sys-color-on-surface);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .project-selector:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .platform-bar-center {
+      flex: 1;
+      max-width: 704px;
+      margin: 0 16px;
+    }
+
+    .pcc-search-bar {
+      width: 100%;
+      height: 36px;
+      background-color: var(--cm-sys-color-backdrop-inset);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 16px;
+      cursor: text;
+    }
+
+    .search-placeholder {
+      color: #c4c9d4;
+      font-size: 13.5px;
+    }
+
+    .search-right-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #b9c0cc;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .platform-bar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-left: 6px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    nav.breadcrumb-bar {
+      height: 28px;
+      background-color: var(--cm-sys-color-backdrop);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 12.5px;
+      color: var(--cm-sys-color-on-surface-variant);
+      flex-shrink: 0;
+    }
+
+    .breadcrumb-link {
+      color: var(--cm-sys-color-on-surface-variant);
+      text-decoration: none;
+    }
+
+    .breadcrumb-sep {
+      margin: 0 8px;
+    }
+
+    main.linked-account-surface {
+      flex: 1;
+      background-color: var(--cm-sys-color-surface);
+      margin: 0 12px 12px 12px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 44px;
+    }
+
+    .linked-card {
+      background-color: var(--cm-sys-color-surface-variant);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 516px;
+      padding: 28px 32px;
+    }
+
+    .linked-sublabel {
+      font-size: 12px;
+      color: var(--cm-sys-color-on-surface-variant);
+      margin-bottom: 6px;
+    }
+
+    .linked-title {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cm-sys-color-on-surface);
+      margin-bottom: 14px;
+    }
+
+    .linked-desc {
+      font-size: 13.5px;
+      color: var(--cm-sys-color-on-surface);
+      line-height: 20px;
+      margin-bottom: 24px;
+    }
+
+    .linked-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary-outline {
+      height: 32px;
+      padding: 0 16px;
+      border-radius: 9999px;
+      background-color: #414d5e;
+      border: 1.5px solid var(--cm-sys-color-outline);
+      color: var(--cm-sys-color-primary-on-container);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-primary-outline:hover {
+      background-color: #4c5a6e;
+    }
+
+    .btn-secondary-outline {
+      height: 32px;
+      padding: 0 16px;
+      border-radius: 9999px;
+      background: transparent;
+      border: 1px solid var(--cm-sys-color-hairline);
+      color: var(--cm-sys-color-primary-on-container);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-secondary-outline:hover {
+      background: rgba(131, 156, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="platform-bar">
+    <div class="platform-bar-left">
+      <button class="icon-btn" title="Navigation menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+        </svg>
+      </button>
+      <a class="gcp-wordmark-link" href="/welcome/?project=crossbox-668a3">
+        <img src="https://www.gstatic.com/pantheon/images/cm3/googleCloudColoredLogoDark_wm.svg" alt="Google Cloud">
+      </a>
+      <a class="project-selector" href="/welcome/?project=crossbox-668a3">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+          <circle cx="8" cy="4" r="1.8" />
+          <circle cx="4" cy="11" r="1.8" />
+          <circle cx="12" cy="11" r="1.8" />
+          <path d="M8 4L4 11M8 4L12 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span>Crossbox</span>
+      </a>
+    </div>
+
+    <div class="platform-bar-center">
+      <div class="pcc-search-bar">
+        <span class="search-placeholder">Search (/) for resources, docs, products, and more</span>
+        <div class="search-right-btn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+          </svg>
+          <span>Search</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="platform-bar-right">
+      <button class="icon-btn" title="Gemini Cloud Assist">
+        <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+          <path d="M128 256q0-26.56-10.24-49.92-9.92-23.36-27.2-40.64c-17.28-17.28-25.067-20.587-40.64-27.2Q26.56 128 0 128q26.56 0 49.92-9.92 23.36-10.24 40.64-27.52c17.28-17.28 20.587-25.067 27.2-40.64Q128 26.56 128 0q0 26.56 9.92 49.92 10.24 23.36 27.52 40.64c17.28 17.28 25.067 20.693 40.64 27.52Q229.44 128 256 128q-26.56 0-49.92 10.24-23.36 9.92-40.64 27.2c-17.28 17.28-20.693 25.067-27.52 40.64Q128 229.44 128 256"></path>
+        </svg>
+      </button>
+      <button class="icon-btn" title="Cloud Shell">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14zm-6-5-3-3H7l3 3-3 3h3zm4 2v-1h-4v2h4z"></path>
+        </svg>
+      </button>
+      <button class="icon-btn" title="Notifications">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2zm-2 0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2"></path>
+        </svg>
+      </button>
+      <button class="icon-btn" title="Settings and utilities">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"></path>
+        </svg>
+      </button>
+      <div class="avatar-circle">
+        <svg viewBox="0 0 36 36" width="32" height="32">
+          <circle cx="18" cy="18" r="18" fill="#00897b"/>
+          <circle cx="18" cy="15" r="7" fill="#fdd835"/>
+          <path d="M9 32c1-6 5-9 9-9s8 3 9 9" fill="#fbc02d"/>
+          <circle cx="15.5" cy="14" r="1.2" fill="#212121"/>
+          <circle cx="20.5" cy="14" r="1.2" fill="#212121"/>
+          <path d="M15 17.5q3 2 6 0" stroke="#212121" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar">
+    <a class="breadcrumb-link" href="/billing/0131E5-07A0B1-7EF13B/?project=crossbox-668a3">Billing</a>
+    <span class="breadcrumb-sep">/</span>
+    <span style="color: var(--cm-sys-color-on-surface);">Linked account</span>
+  </nav>
+
+  <main class="linked-account-surface">
+    <div class="linked-card">
+      <div class="linked-sublabel">Billing</div>
+      <h1 class="linked-title">You have more than one billing account</h1>
+      <p class="linked-desc">
+        The billing account "Pago de Firebase" is linked to this project
+      </p>
+      <div class="linked-actions">
+        <a class="btn-primary-outline" href="/billing/0131E5-07A0B1-7EF13B/?project=crossbox-668a3">Go to linked billing account</a>
+        <a class="btn-secondary-outline" href="/billing/0131E5-07A0B1-7EF13B/?project=crossbox-668a3">Manage billing accounts</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    try {
+      const p = window.location.pathname;
+      let prefix = '';
+      const m = p.match(/^(\/[^\/]+)\/(?:billing|welcome|facturacion|index)/);
+      if (m && m[1] !== '/billing' && m[1] !== '/welcome') {
+        prefix = m[1];
+      }
+      window.history.replaceState(null, '', prefix + '/billing/linkedaccount?project=crossbox-668a3');
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        const raw = a.getAttribute('href');
+        if (prefix && !raw.startsWith(prefix)) a.setAttribute('href', prefix + raw);
+      });
+    } catch (e) {}
+  </script>
+</body>
+</html>
