@@ -1850,6 +1850,167 @@
       user-select: none;
     }
 
+
+    /* ==========================================================================
+       GCP NATIVE TRANSACTIONS WHITE CARDS (Calibrated from screenshot)
+       ========================================================================== */
+    .tx-filters-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tx-filter-dropdown-btn {
+      background: transparent;
+      border: none;
+      color: var(--cm-sys-color-on-surface);
+      font-size: 13.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 6px 4px;
+      font-family: var(--font-ui);
+    }
+
+    .tx-filter-dropdown-btn:hover {
+      color: #8ab4f8;
+    }
+
+    .tx-month-white-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      margin-bottom: 24px;
+      overflow: hidden;
+      color: #202124;
+      font-family: var(--font-ui);
+    }
+
+    .tx-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px 12px 24px;
+    }
+
+    .tx-card-title {
+      font-size: 19px;
+      font-weight: 500;
+      color: #202124;
+      margin: 0;
+    }
+
+    .tx-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tx-action-icon-btn {
+      background: transparent;
+      border: none;
+      color: #5f6368;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      border-radius: 50%;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .tx-action-icon-btn:hover {
+      background: #f1f3f4;
+      color: #202124;
+    }
+
+    .tx-balance-bar {
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 24px;
+      text-align: right;
+      font-size: 13.5px;
+      color: #202124;
+      background: #ffffff;
+    }
+
+    .tx-balance-bar strong {
+      font-weight: 500;
+    }
+
+    .gcp-tx-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .gcp-tx-table th {
+      padding: 12px 24px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      color: #5f6368;
+      border-bottom: 1px solid #e0e0e0;
+      background: #ffffff;
+    }
+
+    .gcp-tx-table th.right, .gcp-tx-table td.right {
+      text-align: right;
+    }
+
+    .gcp-tx-table td {
+      padding: 14px 24px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #202124;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    .gcp-tx-table tr:hover td {
+      background-color: #f8f9fa;
+    }
+
+    .tx-desc-title {
+      color: #202124;
+      font-weight: 400;
+    }
+
+    .tx-desc-link {
+      color: #1a73e8;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .tx-desc-link:hover {
+      text-decoration: underline;
+    }
+
+    .tx-desc-subid {
+      font-size: 11.5px;
+      color: #1a73e8;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    .tx-desc-subid:hover {
+      text-decoration: underline;
+    }
+
+    .tx-amount-charge {
+      color: #202124;
+      font-weight: 400;
+    }
+
+    .tx-amount-payment {
+      color: #202124;
+      font-weight: 400;
+    }
+
   </style>
 </head>
 <body>
@@ -2093,7 +2254,7 @@
           </div>
           <button class="nav-item-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"/></svg></button>
         </a>
-        <a class="nav-item">
+        <a class="nav-item" id="nav-payment-settings" onclick="switchSection('payment-settings')">
           <div class="nav-item-left">
             <svg viewBox="0 0 18 18"><path d="M9 9a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg>
             <span>Payment settings</span>
@@ -2982,7 +3143,7 @@
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="#839cff"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
                 <strong style="font-size:14px;color:#f1f4f9;">Custom Invoice / Factura Generator (Values Customization)</strong>
               </div>
-              <span style="font-size:12px;color:#b9c0cc;">Card memorized: <strong>Visa •••• 6911</strong> • ID: 9341-6911-2382</span>
+              <span style="font-size:12px;color:#b9c0cc;">Card memorized: <strong>American Express •••• 1989</strong> • ID: 9341-6911-2382</span>
             </div>
 
             <div class="builder-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;">
@@ -3004,7 +3165,7 @@
               </div>
               <div class="builder-field">
                 <label style="color:#b9c0cc;font-size:12px;">Payment Card</label>
-                <input class="builder-input" id="bldCard" type="text" value="Visa •••• 6911" readonly style="background:#22272e;border:1px solid #444c56;color:#8ab4f8;border-radius:4px;padding:8px 10px;cursor:not-allowed;">
+                <input class="builder-input" id="bldCard" type="text" value="American Express •••• 1989" readonly style="background:#22272e;border:1px solid #444c56;color:#8ab4f8;border-radius:4px;padding:8px 10px;cursor:not-allowed;">
               </div>
               <div class="builder-field">
                 <label style="color:#b9c0cc;font-size:12px;">Customer Name</label>
@@ -3154,229 +3315,233 @@
         </div>
       </section>
 
+            <!-- ====================================================================
+           VIEW 5: TRANSACTIONS (Pixel-Calibrated from Live GCP Screenshot)
+           ==================================================================== -->
       <section class="view-section" id="view-transactions">
-        <div class="transactions-layout">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-            <div>
-              <h1 class="surface-h1">Transactions</h1>
-              <p style="font-size:13px;color:var(--cm-sys-color-on-surface-variant);margin-top:4px;">
-                View your complete payment history, auto-debited statements, and official tax receipts for <strong>Pago de Firebase</strong>.
-              </p>
-            </div>
+        <div class="invoices-page-container">
+          <!-- Top Heading & Learn more -->
+          <div class="invoices-top-header">
+            <h1 class="invoices-title">Transactions</h1>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="pill-outlined-btn" onclick="downloadPaymentsCSV()">
-                <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M13 7h-2V3H7v4H5l4 4 4-4zm-9 6v2h10v-2H4z"/></svg>
-                <span>Download CSV</span>
-              </button>
-              <button class="pill-outlined-btn" onclick="switchSection('tabular')">
-                <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M2 3h14v12H2V3zm2 3v3h4V6H4zm6 0v3h4V6h-4zM4 11v2h4v-2H4zm6 0v2h4v-2h-4z"/></svg>
-                <span>Cost table</span>
+              <button class="invoices-learn-btn" onclick="openReceipt('2026-10')">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                </svg>
+                <span>Learn more</span>
               </button>
             </div>
           </div>
 
-          <!-- Summary KPI Cards -->
-          <div class="kpi-cards-summary-row">
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Current balance due</span>
-              <span class="tx-kpi-value" style="color:var(--cm-sys-color-status-success);">$0.00</span>
-              <span class="tx-kpi-sub">All closed monthly invoices are fully paid</span>
-            </div>
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Total payments completed</span>
-              <span class="tx-kpi-value">$38.28</span>
-              <span class="tx-kpi-sub">7 automatic payments executed (May – Nov 2026)</span>
-            </div>
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Next scheduled payment</span>
-              <span class="tx-kpi-value" style="color:var(--cm-sys-color-primary-on-container);">$7.89</span>
-              <span class="tx-kpi-sub">Nov 2026 MTD charges (Auto-debit on Dec 2, 2026)</span>
-            </div>
-            <div class="tx-kpi-card">
-              <span class="tx-kpi-label">Payment method</span>
-              <span class="tx-kpi-value" style="font-size:17px;font-weight:400;display:flex;align-items:center;gap:8px;">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="#839cff"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-                Visa •••• 6911
-              </span>
-              <span class="tx-kpi-sub">Automatic payments enabled (Billing ID: 9341-6911-2382)</span>
-            </div>
+          <!-- 3 Dropdown Filters above the card (Screenshot Layout) -->
+          <div class="tx-filters-top-bar">
+            <button class="tx-filter-dropdown-btn">
+              <span>Detailed transaction view</span>
+              <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M5 7h8l-4 4-4-4z"/></svg>
+            </button>
+            <button class="tx-filter-dropdown-btn">
+              <span>All transactions</span>
+              <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M5 7h8l-4 4-4-4z"/></svg>
+            </button>
+            <button class="tx-filter-dropdown-btn">
+              <span>Previous 3 months</span>
+              <svg viewBox="0 0 18 18" width="16" height="16" fill="currentColor"><path d="M5 7h8l-4 4-4-4z"/></svg>
+            </button>
           </div>
 
-          <!-- Filter Toolbar -->
-          <div class="tx-filter-bar">
-            <div class="tx-filter-group">
-              <span style="font-size:13px;color:var(--cm-sys-color-on-surface-variant);">View:</span>
-              <select class="filter-select" style="min-width:180px;height:34px;">
-                <option>Detailed transaction view</option>
-                <option>Summary view</option>
-              </select>
-              <span style="font-size:13px;color:var(--cm-sys-color-on-surface-variant);margin-left:8px;">Period:</span>
-              <select class="filter-select" style="min-width:180px;height:34px;">
-                <option>All time (Apr 2026 – Present)</option>
-                <option>Previous 3 months</option>
-                <option>2026</option>
-              </select>
+          <!-- Month 1 White Card: Nov 1 – 25, 2026 (Live Current Cycle) -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Nov 1 – 25, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
             </div>
-            <div style="font-size:12.5px;color:var(--cm-sys-color-on-surface-variant);">
-              Showing 7 paid statements & 1 in-progress cycle
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 7.91</strong>
             </div>
-          </div>
-
-          <!-- Transactions Table -->
-          <div class="tx-table-container">
-            <table class="tx-table">
+            <table class="gcp-tx-table">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Transaction Description</th>
-                  <th>Payment Method / Details</th>
-                  <th style="text-align:right;">Amount ($)</th>
-                  <th style="text-align:center;">Status</th>
-                  <th style="text-align:center;">Official Receipt</th>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
                 </tr>
               </thead>
-              <tbody id="transactionsTableBody">
-                <!-- Row 1: Nov 2026 Payment for Oct Invoice -->
+              <tbody>
                 <tr>
-                  <td style="font-weight:500;">Nov 2, 2026</td>
+                  <td>Nov 1 – 30, 2026</td>
                   <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Oct 1 – Oct 31, 2026 (Invoice 5742111055)</div>
+                    <div class="tx-desc-title">Google Cloud</div>
                   </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$3.80</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-10')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <td class="right tx-amount-charge">USD 7.91</td>
                 </tr>
-
-                <!-- Row 2: Oct 2026 Payment for Sep Invoice -->
                 <tr>
-                  <td style="font-weight:500;">Oct 2, 2026</td>
+                  <td>Nov 1, 2026</td>
                   <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Sep 1 – Sep 30, 2026 (Invoice 5711325158)</div>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-10')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-10')">
+                      41601509666548985633-CLOUD
+                    </div>
                   </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$3.62</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-09')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <td class="right tx-amount-payment">-USD 3.80</td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <!-- Row 3: Sep 2026 Payment for Aug Invoice -->
+          <!-- Month 2 White Card: Oct 1 – 31, 2026 -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Oct 1 – 31, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 0.00</strong>
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
                 <tr>
-                  <td style="font-weight:500;">Sep 2, 2026</td>
-                  <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Aug 1 – Aug 31, 2026 (Invoice 5685089576)</div>
-                  </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$6.32</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-08')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
                 </tr>
-
-                <!-- Row 4: Aug 2026 Payment for Jul Invoice -->
+              </thead>
+              <tbody>
                 <tr>
-                  <td style="font-weight:500;">Aug 2, 2026</td>
-                  <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Jul 1 – Jul 31, 2026 (Invoice 5655234025)</div>
-                  </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$5.11</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-07')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <td>Oct 1 – 31, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 3.80</td>
                 </tr>
-
-                <!-- Row 5: Jul 2026 Payment for Jun Invoice -->
                 <tr>
-                  <td style="font-weight:500;">Jul 2, 2026</td>
+                  <td>Oct 1, 2026</td>
                   <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Jun 1 – Jun 30, 2026 (Invoice 5626064420)</div>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-09')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-09')">
+                      41601509666548984920-CLOUD
+                    </div>
                   </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$9.43</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-06')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <td class="right tx-amount-payment">-USD 3.62</td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
 
-                <!-- Row 6: Jun 2026 Payment for May Invoice -->
+          <!-- Month 3 White Card: Sep 1 – 30, 2026 -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Sep 1 – 30, 2026</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download statement" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+                <button class="tx-action-icon-btn" title="Print statement" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Ending balance: <strong>USD 0.00</strong>
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
                 <tr>
-                  <td style="font-weight:500;">Jun 2, 2026</td>
-                  <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: May 1 – May 31, 2026 (Invoice 5598511715)</div>
-                  </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$0.04</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-05')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
                 </tr>
-
-                <!-- Row 7: May 2026 Payment for Apr Invoice -->
+              </thead>
+              <tbody>
                 <tr>
-                  <td style="font-weight:500;">May 2, 2026</td>
-                  <td>
-                    <div style="font-weight:500;">Automatic payment: Visa •••• 6911</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Statement period: Apr 1 – Apr 30, 2026 (Invoice 5565692484)</div>
-                  </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (ID: 9341-6911-2382)</td>
-                  <td style="text-align:right;font-weight:500;">-$1.30</td>
-                  <td style="text-align:center;"><span style="color:var(--cm-sys-color-status-success);font-weight:500;">✓ Paid</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="openReceipt('2026-04')">
-                      <svg viewBox="0 0 18 18" width="14" height="14" fill="currentColor"><path d="M14 2H4a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zm-2 10H6v-1.5h6V12zm0-3H6V7.5h6V9zm0-3H6V4.5h6V6z"/></svg>
-                      View receipt
-                    </button>
-                  </td>
+                  <td>Sep 1 – 30, 2026</td>
+                  <td><div class="tx-desc-title">Google Cloud</div></td>
+                  <td class="right tx-amount-charge">USD 3.62</td>
                 </tr>
-
-                <!-- Row 8: Current in-progress MTD -->
-                <tr style="background:rgba(131, 156, 255, 0.04);">
-                  <td style="font-weight:500;color:var(--cm-sys-color-primary);">Nov 1–25, 2026</td>
+                <tr>
+                  <td>Sep 1, 2026</td>
                   <td>
-                    <div style="font-weight:500;">Current Month In-Progress Usage (MTD)</div>
-                    <div style="font-size:12px;color:var(--cm-sys-color-on-surface-variant);">Crossbox (crossbox-668a3) active cloud resources</div>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-08')">
+                      Monthly charge: American Express •••• 1989.
+                    </a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-08')">
+                      41601509666548983811-CLOUD
+                    </div>
                   </td>
-                  <td><span style="color:#a8baff;">Visa •••• 6911</span> (Pending cycle close)</td>
-                  <td style="text-align:right;font-weight:600;color:var(--cm-sys-color-on-surface);">$7.89</td>
-                  <td style="text-align:center;"><span style="color:#a8baff;font-weight:500;">● In progress</span></td>
-                  <td style="text-align:center;">
-                    <button class="receipt-btn" onclick="switchSection('tabular')">
-                      Cost details
-                    </button>
+                  <td class="right tx-amount-payment">-USD 6.32</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Earlier Months White Card: Aug, Jul, Jun, May, Apr 2026 -->
+          <div class="tx-month-white-card">
+            <div class="tx-card-header">
+              <h2 class="tx-card-title">Earlier Cycles (Apr – Aug 2026)</h2>
+              <div class="tx-card-actions">
+                <button class="tx-action-icon-btn" title="Download CSV" onclick="downloadPaymentsCSV()">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="tx-balance-bar">
+              Historical settled: <strong>USD 27.20</strong> (All paid in full)
+            </div>
+            <table class="gcp-tx-table">
+              <thead>
+                <tr>
+                  <th style="width:180px;">Date</th>
+                  <th>Description</th>
+                  <th class="right" style="width:160px;">Amount (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Aug 1, 2026</td>
+                  <td>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-07')">Monthly charge: American Express •••• 1989.</a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-07')">41601509666548982740-CLOUD (Invoice 5655234025)</div>
                   </td>
+                  <td class="right tx-amount-payment">-USD 5.11</td>
+                </tr>
+                <tr>
+                  <td>Jul 1, 2026</td>
+                  <td>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-06')">Monthly charge: American Express •••• 1989.</a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-06')">41601509666548981655-CLOUD (Invoice 5626064420)</div>
+                  </td>
+                  <td class="right tx-amount-payment">-USD 9.43</td>
+                </tr>
+                <tr>
+                  <td>Jun 1, 2026</td>
+                  <td>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-05')">Monthly charge: American Express •••• 1989.</a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-05')">41601509666548980544-CLOUD (Invoice 5598511715)</div>
+                  </td>
+                  <td class="right tx-amount-payment">-USD 0.04</td>
+                </tr>
+                <tr>
+                  <td>May 1, 2026</td>
+                  <td>
+                    <a class="tx-desc-link" onclick="openReceipt('2026-04')">Monthly charge: American Express •••• 1989.</a>
+                    <div class="tx-desc-subid" onclick="openReceipt('2026-04')">41601509666548979433-CLOUD (Invoice 5565692484)</div>
+                  </td>
+                  <td class="right tx-amount-payment">-USD 1.30</td>
                 </tr>
               </tbody>
             </table>
@@ -3441,7 +3606,7 @@
               </div>
               <div>
                 <span style="color:#5f6368;">Payment Method:</span><br>
-                <strong id="rcptMethod" style="color:#202124;">Visa •••• 6911</strong>
+                <strong id="rcptMethod" style="color:#202124;">American Express •••• 1989</strong>
               </div>
             </div>
 
@@ -3487,6 +3652,81 @@
           </div>
         </div>
       </div>
+
+
+      <!-- ====================================================================
+           VIEW 7: PAYMENT SETTINGS (Configuración de pagos)
+           ==================================================================== -->
+      <section class="view-section" id="view-payment-settings">
+        <div class="invoices-page-container">
+          <div class="invoices-top-header">
+            <h1 class="invoices-title">Payment settings</h1>
+            <button class="invoices-learn-btn" onclick="openReceipt('2026-10')">
+              <span>Learn more</span>
+            </button>
+          </div>
+          <div class="invoices-white-card" style="padding:24px;">
+            <div style="font-size:16px;font-weight:500;margin-bottom:16px;color:#202124;">Payments profile</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;font-size:13.5px;">
+              <div>
+                <span style="color:#5f6368;">Payments profile ID:</span>
+                <div style="font-weight:500;margin-top:2px;">9341-6911-2382</div>
+              </div>
+              <div>
+                <span style="color:#5f6368;">Account nickname:</span>
+                <div style="font-weight:500;margin-top:2px;">Pago de Firebase</div>
+              </div>
+              <div>
+                <span style="color:#5f6368;">Billing account ID:</span>
+                <div style="font-weight:500;margin-top:2px;">0131E5-07A0B1-7EF13B</div>
+              </div>
+              <div>
+                <span style="color:#5f6368;">Primary payment method:</span>
+                <div style="font-weight:500;margin-top:2px;color:#1a73e8;cursor:pointer;" onclick="switchSection('payment-methods')">
+                  American Express •••• 1989
+                </div>
+              </div>
+              <div>
+                <span style="color:#5f6368;">Payment schedule:</span>
+                <div style="font-weight:500;margin-top:2px;">Automatic payments (Charged on 1st/2nd of month or when threshold reached)</div>
+              </div>
+              <div>
+                <span style="color:#5f6368;">Country / Region:</span>
+                <div style="font-weight:500;margin-top:2px;">Ecuador (USD)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 8: PAYMENT METHODS (Forma de pago)
+           ==================================================================== -->
+      <section class="view-section" id="view-payment-methods">
+        <div class="invoices-page-container">
+          <div class="invoices-top-header">
+            <h1 class="invoices-title">Payment methods</h1>
+            <button class="invoices-learn-btn" onclick="openReceipt('2026-10')">
+              <span>Learn more</span>
+            </button>
+          </div>
+          <div class="invoices-white-card" style="padding:24px;">
+            <div style="font-size:16px;font-weight:500;margin-bottom:16px;color:#202124;">Active cards on file</div>
+            <div style="border:1px solid #dadce0;border-radius:8px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;max-width:540px;">
+              <div style="display:flex;align-items:center;gap:16px;">
+                <div style="background:#006fcf;color:#fff;font-weight:700;font-size:11px;padding:6px 10px;border-radius:4px;letter-spacing:0.5px;">AMEX</div>
+                <div>
+                  <div style="font-weight:500;font-size:14.5px;color:#202124;">American Express •••• 1989</div>
+                  <div style="font-size:12px;color:#137333;margin-top:3px;font-weight:500;">✓ Primary payment method</div>
+                </div>
+              </div>
+              <button class="pill-outlined-btn" style="color:#1a73e8;border-color:#dadce0;" onclick="switchSection('transactions')">
+                View transactions
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </main>
   </div>
@@ -3822,7 +4062,7 @@
         num: "5742111055",
         payDate: "Nov 2, 2026",
         period: "Oct 1 – Oct 31, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "3.80",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine, Cloud Run Functions, Artifact Registry, Firebase Hosting, Vertex AI)"
       },
@@ -3830,7 +4070,7 @@
         num: "5711325158",
         payDate: "Oct 2, 2026",
         period: "Sep 1 – Sep 30, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "3.62",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine, Artifact Registry, Cloud Run)"
       },
@@ -3838,7 +4078,7 @@
         num: "5685089576",
         payDate: "Sep 2, 2026",
         period: "Aug 1 – Aug 31, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "6.32",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine)"
       },
@@ -3846,7 +4086,7 @@
         num: "5655234025",
         payDate: "Aug 2, 2026",
         period: "Jul 1 – Jul 31, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "5.11",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine, Artifact Registry)"
       },
@@ -3854,7 +4094,7 @@
         num: "5626064420",
         payDate: "Jul 2, 2026",
         period: "Jun 1 – Jun 30, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "9.39",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, Cloud Scheduler, App Engine, Firestore)"
       },
@@ -3862,7 +4102,7 @@
         num: "5598511715",
         payDate: "Jun 2, 2026",
         period: "May 1 – May 31, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "8.74",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Run Functions, App Engine, Cloud Scheduler)"
       },
@@ -3870,7 +4110,7 @@
         num: "5565692484",
         payDate: "May 2, 2026",
         period: "Apr 1 – Apr 30, 2026",
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: "1.30",
         servicesSummary: "Google Cloud Platform - Crossbox (Cloud Scheduler, App Engine initial deployment)"
       }
@@ -3916,7 +4156,7 @@
         num: num,
         payDate: payDate,
         period: period,
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: amount,
         customer: customer,
         servicesSummary: services
@@ -3937,7 +4177,7 @@
         num: num,
         payDate: issueDate,
         period: issueDate,
-        method: "Visa •••• 6911",
+        method: "American Express •••• 1989",
         amount: amount,
         customer: customer,
         servicesSummary: "Google Cloud Platform - Crossbox (Custom Statement)"
@@ -4012,7 +4252,7 @@
       Object.entries(RECEIPTS_DB).forEach(([k, r]) => {
         csv += `"${r.payDate}","Automatic payment: ${r.method}","${r.period}","${r.num}","${r.method}","-${r.amount}","Paid"\n`;
       });
-      csv += `"Nov 1-25, 2026","In-progress MTD usage","Nov 1 - Nov 25, 2026","In progress","Visa •••• 6911","7.89","In progress"\n`;
+      csv += `"Nov 1-25, 2026","In-progress MTD usage","Nov 1 - Nov 25, 2026","In progress","American Express •••• 1989","7.89","In progress"\n`;
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -4036,6 +4276,14 @@
         document.getElementById('view-transactions').classList.add('active');
         if (document.getElementById('nav-transactions')) document.getElementById('nav-transactions').classList.add('selected');
         bc.innerText = 'Transactions';
+      } else if (sec === 'payment-settings') {
+        document.getElementById('view-payment-settings').classList.add('active');
+        if (document.getElementById('nav-payment-settings')) document.getElementById('nav-payment-settings').classList.add('selected');
+        bc.innerText = 'Payment settings';
+      } else if (sec === 'payment-methods') {
+        document.getElementById('view-payment-methods').classList.add('active');
+        if (document.getElementById('nav-payment-methods')) document.getElementById('nav-payment-methods').classList.add('selected');
+        bc.innerText = 'Payment methods';
       } else if (sec === 'overview') {
         document.getElementById('view-overview').classList.add('active');
         document.getElementById('nav-overview').classList.add('selected');
